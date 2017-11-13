@@ -123,7 +123,7 @@
 	"title": "Data Structure and Algorithms",
 	"tags": [],
 	"description": "",
-	"content": "  Intro The Basics of Binary Binary Addition  "
+	"content": "  Memory and Unicode  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/pluralsight/c-plus/",
@@ -158,7 +158,7 @@
 	"title": "Data Structure &amp; Algorithms in JS",
 	"tags": [],
 	"description": "",
-	"content": "  "
+	"content": "  Object Oriented Javascript  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/udacity/deep-learning/neural-networks/",
@@ -217,7 +217,28 @@
 	"content": "  Logistic Regression  "
 },
 {
-	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-unicode-intro/",
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/",
+	"title": "Memory and Unicode",
+	"tags": [],
+	"description": "",
+	"content": "  Intro The Basics of Binary Binary Addition Convert String to Binary Unicode Intro Strings with Unicode The Byte Data Types HexaDecimal Intro Hexadecimal Conversions Hex to Binary Bytes and Strings Read in File Data Convert to a Pandas dataframe Clean up Sentences Filter the Tokens Count the tokens Most Common Token by Year  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/",
+	"title": "Object Oriented Javascript",
+	"tags": [],
+	"description": "",
+	"content": "  Pseudoclassical Javascript Defining a Class  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/pseudoclassical-js/",
+	"title": "Pseudoclassical Javascript",
+	"tags": [],
+	"description": "",
+	"content": " Javascript is an OOP language But it doesn\u0026rsquo;t have a \u0026ldquo;formal\u0026rdquo; way of creatingg class constructors class is actually defined in the ES6 (ES2015) updates  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/memory-unicode-intro/",
 	"title": "Intro",
 	"tags": [],
 	"description": "",
@@ -231,18 +252,123 @@
 	"content": " Logistic Regression as a method for classification Some examples of classification problems  Spam vs. Ham emails Loan Default Disease Diagnosis  Normal linear regression model won\u0026rsquo;t fit well on binary groups   "
 },
 {
-	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/basics-of-binary/",
+	"uri": "https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/define-class/",
+	"title": "Defining a Class",
+	"tags": [],
+	"description": "",
+	"content": "  What is a class in JS? A constructor What does a class have  properties methods  What does it do  An Example  Define a house class (constructore)  function Building(floors){ // Constructor this.what = \u0026quot;building\u0026quot;; // Properties (per instance) this.floors = floors; } // Make an instance var myHouse = new Building(3) console.log(myHouse.what) console.log(myHouse.floors) Building.prototype.countFloors = function(){ // Methods for all instances console.log(\u0026quot;I have\u0026quot;, this.floors, \u0026quot;floors\u0026quot;) }; console.log(myHouse.countFloors())  Results building\n3\nI have 3 floors\n  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/basics-of-binary/",
 	"title": "The Basics of Binary",
 	"tags": [],
 	"description": "",
 	"content": "Computers can\u0026rsquo;t store values like strings or integers directly. Instead, they store information in binary, where the only valid numbers are 0 and 1. This system makes storing data on devices like hard drives possible.\n Base 10: we normally count in \u0026ldquo;base 10.\u0026rdquo; We call this system base 10 because there are 10 possible digits - 0 through 9 Base 2: Binary is base two, because there are only two possible digits - 0 and 1  Let\u0026rsquo;s explore how binary numbers work. Convert the binary number \u0026ldquo;100\u0026rdquo; to a base 10 integer, and assign the result to base_10_100\n In python, we have to store binary numbers as strings. If we try to enter it directly as b = 10, Python will assume it\u0026rsquo;s a base 10 integer we can convert b from a string to a binary number with the int function  We need to set the optional second argument, base, to 2 (binary is base two)   base_10_100 = int(\u0026quot;100\u0026quot;, 2) base_10_100  Results 4  "
 },
 {
-	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/binary-addition/",
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/binary-addition/",
 	"title": "Binary Addition",
 	"tags": [],
 	"description": "",
 	"content": "We can add binary numbers together, just like we can with base 10 numbers\nIn the example below:\n a is in base 10 \u0026ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits \u0026ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero.  a = 9 a += 1 a  Results 10  When we add 1 to 19, we increment the leading 1 by 1, and then set the last digit to 0, giving us 20.\na = 19 a += 1 a  Results 20  When we add 1 to 99, we increment the last digit by 1, and add 1 to the first digit, but the first digit is now greater than 9, so we have to increment the invisible leading digit.\na = 99 a += 1 a  Results 100  Binary addition works the exact same way, except the highest value any single digit can represent is 1\n We\u0026rsquo;ll add binary values by defining a binary_add function that was made just for this exercise It\u0026rsquo;s not extremely important to know how it works at the moment  b = \u0026quot;1\u0026quot; def binary_add(a, b): return bin(int(a, 2) + int(b, 2))[2:] c = binary_add(b, \u0026quot;1\u0026quot;) c  Results 10  c now equals \u0026ldquo;11\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 11  c now equals \u0026ldquo;100\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 100  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-string-binary/",
+	"title": "Convert String to Binary",
+	"tags": [],
+	"description": "",
+	"content": "Computers store strings in binary, just like they do with integers. First, they split them into single characters, then convert those characters to integers. Finally, they convert those integers to binary and store them.\nWe\u0026rsquo;ll look at simple characters first - the so called ASCII characters. These include all upper and lowercase English letters, digits, and several punctuation symbols.\n We can use the ord() function to get the integer for an ASCII character. Then, we use the bin() function to convert to binary.  binary_w = bin(ord(\u0026quot;w\u0026quot;)) binary_w  Results 0b1110111  binary_bracket = bin(ord(\u0026quot;}\u0026quot;)) binary_bracket  Results 0b1111101  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/unicode-intro/",
+	"title": "Unicode Intro",
+	"tags": [],
+	"description": "",
+	"content": "What happened to all of the other characters and alphabets in the world. ASCII can\u0026rsquo;t handle them, because it only supports 255 characters. The tech community realized it needed a new standard, and created Unicode.\nUnicode assigns \u0026ldquo;code points\u0026rdquo; to characters. In Python, code points look like this: \u0026quot;\\u3232\u0026quot;\nWe can use an encoding system to convert these code points to binary integers. The most common encoding system for Unicode is UTF-8. This encoding tells a computer which code points are associated with which integers.\nUTF-8 can encode values that are longer that one byte, which enables it to store all Unicode characters. It encodes characters using a variable number of bytes, which means that it also supports regular ASCII characters (which are one byte each).\nbinary_1019 = bin(ord('\\u1019')) binary_1019  Results 0b10011111110110  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/strings-with-unicode/",
+	"title": "Strings with Unicode",
+	"tags": [],
+	"description": "",
+	"content": "ASCII is a subset of Unicode. Unicode implements all of the ASCII characters, as well as the additional characters that code points allow.\nThis lets us create Unicode strings that combine both ASCII and Unicode characters.\nBy default, Python 3 uses Unicode for all strings, and encodes them with UTF-8. That means we can enter the Unicode code points or the actual characters.\n"
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/byte-data-types/",
+	"title": "The Byte Data Types",
+	"tags": [],
+	"description": "",
+	"content": "Python includes a data type called \u0026ldquo;bytes.\u0026rdquo; It\u0026rsquo;s similar to a string, except that it contains encoded bytes values.\nWhen we create an object with a bytes type from a string, we specify an encoding system (usually UTF-8).\nThen, we can use the .encode() method to encode the string into bytes.\n# We can make a string with some Unicode values superman = \u0026quot;Clark Kent␦\u0026quot; print(superman) # This tells Python to encode the string superman as Unicode using the UTF-8 encoding system # We end up with a sequence of bytes instead of a string superman_bytes = \u0026quot;Clark Kent␦\u0026quot;.encode(\u0026quot;utf-8\u0026quot;) print(superman_bytes) batman = \u0026quot;Bruce Wayne␦\u0026quot; batman_bytes = batman.encode(\u0026quot;utf-8\u0026quot;) print(batman_bytes)  Results Clark Kent␦\nb\u0026rsquo;Clark Kent\\xe2\\x90\\xa6\u0026rsquo;\nb\u0026rsquo;Bruce Wayne\\xe2\\x90\\xa6\u0026rsquo;\n  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hexadecimal-intro/",
+	"title": "HexaDecimal Intro",
+	"tags": [],
+	"description": "",
+	"content": "batman_bytes from the last screen prints out as Bruce Wayne\\xe2\\x90\\xa6. Similar to the \\u prefix for a Unicode code point, \\x is the prefix for a hexadecimal character.\nJust like binary is base 2 and our normal counting system is base 10, hexadecimal is base 16. The valid digits in hexadecimal are 0-9 and A-F. Here are the values corresponding to each character:\n A - 10 B - 11 C - 12 D - 13 E - 14 F - 15  In hexadecimal, 9 + 1 equals A. We use hexadecimal because it represents a byte efficiently. You may recall that a byte is eight bits, or eight binary digits. The highest value we can express in a byte is 11111111, or 255 in base 10. We can express the same value in two hexadecimal digits, FF.\nProgrammers often use hexadecimal to display bytes instead of binary because it\u0026rsquo;s more compact and easier to write out.\n"
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hexadecimal-conversions/",
+	"title": "Hexadecimal Conversions",
+	"tags": [],
+	"description": "",
+	"content": "Some notes on hexadecimal notions:\n The \\x prefix means \u0026ldquo;the next two digits are in hexadecimal.\u0026rdquo; Two hexadecimal digits equal eight binary digits, because digits can have higher values in hexadecimal (base 16). For instance, \u0026ldquo;F\u0026rdquo; is 15 in hexadecimal, but 1111 is 15 in binary. Because it\u0026rsquo;s shorter to display, and four binary digits always equal one hexadecimal digit, programs often use hexadecimal to print out values. This is purely for convenience.  # F is the highest single digit in hexadecimal (base 16) # Its value is 15 in base 10 print(int(\u0026quot;F\u0026quot;, 16)) # A in base 16 has the value 10 in base 10 print(int(\u0026quot;A\u0026quot;, 16)) # Just like the earlier binary_add function, this adds two hexadecimal numbers def hexadecimal_add(a, b): return hex(int(a, 16) + int(b, 16))[2:] # When we add 1 to 9 in hexadecimal, it becomes \u0026quot;a\u0026quot; value = \u0026quot;9\u0026quot; value = hexadecimal_add(value, \u0026quot;1\u0026quot;) print(value) hex_ea = hexadecimal_add(\u0026quot;ea\u0026quot;, \u0026quot;2\u0026quot;) print(hex_ea) hex_ef = hexadecimal_add(\u0026quot;f\u0026quot;, \u0026quot;e\u0026quot;) print(hex_ef)  Results 15\n10\na\nec\n1d\n  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hex-to-binary/",
+	"title": "Hex to Binary",
+	"tags": [],
+	"description": "",
+	"content": "We can convert hexadecimal to binary fairly easily. We can even use the ord() and bin() functions that helped us convert code points to binary.\n# One byte (eight bits) in hexadecimal (the value of the byte below is \\xe2) hex_byte = \u0026quot;â\u0026quot; # Print the base 10 integer value for the hexadecimal byte print(ord(hex_byte)) # This gives the exact same value. Remember that \\x is just a prefix, and doesn't affect the value. print(int(\u0026quot;e2\u0026quot;, 16)) # Convert the base 10 integer to binary print(bin(ord(\u0026quot;â\u0026quot;))) binary_aa = bin(ord(\u0026quot;\\xaa\u0026quot;)) print(binary_aa) binary_ab = bin(ord(\u0026quot;\\xab\u0026quot;)) print(binary_ab)  Results 226\n226\n0b11100010\n0b10101010\n0b10101011\n  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/bytes-and-strings/",
+	"title": "Bytes and Strings",
+	"tags": [],
+	"description": "",
+	"content": "There\u0026rsquo;s no encoding system associated with the bytes data type. That means if we have an object with that data type, Python won\u0026rsquo;t know how to display the (encoded) code points in it. For this reason, we can\u0026rsquo;t mix bytes objects and strings together.\nhulk_bytes = \u0026quot;Bruce Banner␦\u0026quot;.encode(\u0026quot;utf-8\u0026quot;) # We can't mix strings and bytes # For instance, if we try to replace the Unicode ␦ character as a string, it won't work, because that value has been encoded to bytes try: hulk_bytes.replace(\u0026quot;Banner\u0026quot;, \u0026quot;\u0026quot;) except Exception: print(\u0026quot;TypeError with replacement\u0026quot;) # We can create objects of the bytes data type by putting a b in front of the quotation marks in a string hulk_bytes = b\u0026quot;Bruce Banner\u0026quot; # Now, instead of mixing strings and bytes, we can use the replace method with bytes objects instead hulk_bytes.replace(b\u0026quot;Banner\u0026quot;, b\u0026quot;\u0026quot;) thor_bytes = b\u0026quot;Thor\u0026quot; thor_bytes  Results Thor  Once we have a bytes object, we can decode it into a string using an encoding system. We use the .decode() method to do this.\n# Make a bytes object with aquaman's secret identity aquaman_bytes = b\u0026quot;Who knows?\u0026quot; # Now, we can use the decode method, along with the encoding system (UTF-8) to turn it into a string aquaman = aquaman_bytes.decode(\u0026quot;utf-8\u0026quot;) # We can print the value and type to verify that it's a string print(aquaman) print(type(aquaman)) morgan_freeman_bytes = b\u0026quot;Morgan Freeman\u0026quot; morgan_freeman = morgan_freeman_bytes.decode(\u0026quot;utf-8\u0026quot;) morgan_freeman  Results Who knows?\nclass \u0026lsquo;str\u0026rsquo;\nMorgan Freeman\n  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/read-in-file-data/",
+	"title": "Read in File Data",
+	"tags": [],
+	"description": "",
+	"content": "Now that we understand Unicode, we can go ahead and read our data in.\n# We can read our data in using csvreader import csv path = \u0026quot;./data/\u0026quot; # When we open a file, we can specify the system used to encode it (in this case, UTF-8). f = open(path+\u0026quot;sentences_cia.csv\u0026quot;, 'r', encoding=\u0026quot;utf-8\u0026quot;) csvreader = csv.reader(f) sentences_cia = list(csvreader) # The data consists of two columns # The first column contains the year, and the second contains a sentence from a CIA report written in that year # Print the first column of the second row print(sentences_cia[1][0]) # Print the second column of the second row print(sentences_cia[1][1])  Results 1997\nThe FBI information included that al-Mairi\u0026rsquo;s brother \u0026ldquo;traveled to Afghanistan in 1997-1998 to train in Bin - Ladencamps.\u0026rdquo;\n  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-to-a-pandas-dataframe/",
+	"title": "Convert to a Pandas dataframe",
+	"tags": [],
+	"description": "",
+	"content": "To make this easier for ourselves, let\u0026rsquo;s convert our sentences to a pandas dataframe.\nHaving a dataframe will make processing and analysis much simpler because we can use the .apply() method.\nimport pandas as pd df = pd.read_csv(path+\u0026quot;sentences_cia.csv\u0026quot;) df = df.iloc[:,:2] df.head()     year statement     1997 The FBI information included that al-Mairi\u0026rsquo;s b\u0026hellip;   1997 The FBI information included that al-Mairi\u0026rsquo;s b\u0026hellip;   1997 For example, on October 12, 2004, another CIA \u0026hellip;   1997 On October 16, 2001, an email from a CTC offic\u0026hellip;   1997 For example, on October 12, 2004, another CIA \u0026hellip;    "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/clean-up-sentences/",
+	"title": "Clean up Sentences",
+	"tags": [],
+	"description": "",
+	"content": "Now that we\u0026rsquo;ve formatted our data nicely, we need to process the strings to count term occurences.\nFirst, though, we need to clean them up by removing extraneous symbols. We only really care about letters, digits, and spaces.\nLuckily, we can check the integer code of each character using ord() to see if it\u0026rsquo;s a character we want to keep.\n# The integer codes for all the characters we want to keep good_characters = [48, 49, 50, 51, 52, 53, 54, 55, 56, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 32] sentences_cia = df.copy() sentence_15 = sentences_cia[\u0026quot;statement\u0026quot;][14] # Iterate over the characters in the sentence, and only take those whose integer representations are in good_characters # This will construct a list of single characters cleaned_sentence_15_list = [s for s in sentence_15 if ord(s) in good_characters] # Join the list together, separated by \u0026quot;\u0026quot; (no space), which creates a string again cleaned_sentence_15 = \u0026quot;\u0026quot;.join(cleaned_sentence_15_list) # Define the clean function def clear_str(my_str): temp_str = [s for s in my_str if ord(s) in good_characters] return \u0026quot;\u0026quot;.join(temp_str) sentences_cia[\u0026quot;cleaned_statement\u0026quot;] = sentences_cia[\u0026quot;statement\u0026quot;].apply(clear_str) sentences_cia.head()     year statement cleaned_statement     1997 The FBI information included that al-Mairi\u0026rsquo;s b\u0026hellip; The FBI information included that alMairis bro\u0026hellip;   1997 The FBI information included that al-Mairi\u0026rsquo;s b\u0026hellip; The FBI information included that alMairis bro\u0026hellip;   1997 For example, on October 12, 2004, another CIA \u0026hellip; For example on October 12 2004 another CIA det\u0026hellip;   1997 On October 16, 2001, an email from a CTC offic\u0026hellip; On October 16 2001 an email from a CTC officer\u0026hellip;   1997 For example, on October 12, 2004, another CIA \u0026hellip; For example on October 12 2004 another CIA det\u0026hellip;    Now we need to combine the sentences and convert them to tokens.\nThe eventual goal is to count up how many times each term occurs.\ncombined_statements = \u0026quot; \u0026quot;.join(sentences_cia[\u0026quot;cleaned_statement\u0026quot;]) statement_tokens = combined_statements.split(\u0026quot; \u0026quot;) statement_tokens[:10]                   The FBI information included that alMairis brother traveled to Afghanistan    "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/filter-the-tokens/",
+	"title": "Filter the Tokens",
+	"tags": [],
+	"description": "",
+	"content": "The problem is that the most common words in the English language are ones that are relatively uninteresting to us right now \u0026ndash; words like \u0026ldquo;the\u0026rdquo;, \u0026ldquo;a\u0026rdquo;, and so on. These words are called stopwords - words that don\u0026rsquo;t add much information to our analysis.\nIt\u0026rsquo;s common to filter out any words on a list of known stopwords. What we\u0026rsquo;ll do here for the sake of simplicity is filter out any words less than five characters long. This should remove most stopwords.\n Filter the statement_tokens list so that it only contains tokens that are at least five characters long. Assign the result to filtered_tokens.  filtered_tokens = [s for s in statement_tokens if len(s) \u0026gt;= 5] filtered_tokens[:10]                   information included alMairis brother traveled Afghanistan train Ladencamps information included    "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/count-the-tokens/",
+	"title": "Count the tokens",
+	"tags": [],
+	"description": "",
+	"content": "Now that we\u0026rsquo;ve filtered the tokens, we can count how many times each one occurs. The Counter object from the collections library will help us with this.\nCounter takes a list as input. It creates a dictionary where the keys are list items, and the values are the number of times those items appear in the list.\n Count the items in filtered_tokens and assign the result to filtered_token_counts Get the three most common items in filtered_token_counts, and assign the result to common_tokens.  from collections import Counter filtered_token_counts = Counter(filtered_tokens) common_tokens = filtered_token_counts.most_common(3) common_tokens     Top Tokens Counts     interrogation 391   information 375   REDACTED 375    "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/most-common-token-by-year/",
+	"title": "Most Common Token by Year",
+	"tags": [],
+	"description": "",
+	"content": "Now put everything together, let\u0026rsquo;s write a function the count the most common tokens by a selected year\n# sentences_cia has been loaded in. # It already has the cleaned_statement column. def most_common_year(my_year): my_df = sentences_cia[sentences_cia[\u0026quot;year\u0026quot;] == my_year] combined_statements = \u0026quot; \u0026quot;.join(my_df[\u0026quot;cleaned_statement\u0026quot;]) statement_tokens = combined_statements.split(\u0026quot; \u0026quot;) filtered_tokens = [s for s in statement_tokens if len(s) \u0026gt;= 5] filtered_token_counts = Counter(filtered_tokens) common_tokens = filtered_token_counts.most_common(2) return common_tokens common_2000 = most_common_year(2000) common_2002 = most_common_year(2002) common_2013 = most_common_year(2013) common_2000     Top tokens Counts     Ahmad 9   terrorist 9    "
 },
 {
 	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/state-intro/",
