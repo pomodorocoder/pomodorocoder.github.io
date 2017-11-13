@@ -1,13 +1,13 @@
 #+TITLE: Pomodoro Coder
 
-#+HUGO_BASE_DIR: ../
+#+HUGO_BASE_DIR: ./temp/
 #+HUGO_SECTION: ./
 #+HUGO_WEIGHT: auto
 #+HUGO_AUTO_SET_LASTMOD: t
 
 * Udacity
 
-* Udemy
+* Udemy                                      :@Udemy:
 
 ** Data Science for Python
 
@@ -37,6 +37,309 @@
 
 **** Logistic Regression Project Solution
 ** Data Science for R
+** Advanced Web Bootcamp
+*** React
+**** State
+***** Intro to State
+:PROPERTIES:
+:EXPORT_FILE_NAME: state-intro
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+****** Objectives
+
+       - Define State in React
+       - Create a component with a constructor and state
+       - Describe what happens when setState is called
+
+****** State Definition
+
+       - Stateful Data: Data in our applications that can be changed
+       - Unlike ~props~ that cannot be changed
+
+****** State Example
+
+An example:
+#+begin_src js
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {favColor: "red"};
+    }
+
+    render() {
+        return (
+            
+            <div>
+                My favorite color: {this.state.favColor}
+            </div>
+        )
+    }
+}
+#+end_src
+      
+****** setState 
+       - How to change the state here? The correct way to change state in the app is using setState
+       - setState accepts an object with new properties and values for this.state
+       - Create a new object and change the state for newly created object
+       - Should never never modify state directly in the original object
+
+#+begin_src js
+this.setState({});
+#+end_src
+
+Example of changing state
+
+#+begin_src js
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {favColor: "red"};
+        setTimeout(() => {
+            this.setState({favColor: "blue"})
+        }, 3000);
+    }
+
+    render(){
+        return(
+          <div>
+            The current Color is:
+            {this.state.favColor}
+          </div>
+        );
+    }
+}
+#+end_src
+
+***** Pure Functions
+:PROPERTIES:
+:EXPORT_FILE_NAME: pure-functions
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+****** Objectives
+       - Define Pure Functions
+
+****** Pure Function Definition
+       - A function with no side effects
+       - It does not modify its inputs
+       - It's repeatable
+       - To generate the outputs, we don't need to change the inputs
+
+****** Example A.1: Not a Pure Function
+       - The code below is not a pure function as it changes the values in the input array
+       - It is not repeatable: if we run the function multiple times it won't generate the same results
+#+begin_src js
+function doubleVals(arr) {
+    for(var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i] * 2;    // Note here, the value of input array is changed
+    }
+    return arr;
+}
+#+end_src
+
+****** Example A.2: A Pure Function
+       - Can use the ~map~ method which returns an array
+       - The input value is not changed
+       - The process is repeatable: with same input array, will always generate the same output array
+#+begin_src js
+function doubleVals(arr){
+    return arr.map(d => d * 2);
+}
+#+end_src
+
+****** Example B.1: Not a Pure Function
+       - In the case below, we are modifying global state
+       - Will add a property called job to the person object
+#+begin_src js
+var person = {id: 53, name: "Iza"};
+
+function addJob(job){
+    person.job = job;
+}
+addJob("Data Scientist");
+#+end_src
+
+****** Example B.2: Pure Function
+#+begin_src js
+var person = {id: 88, name: "Iza"};
+
+function addJob(personObj, job){
+    return Object.assign(
+        {}, personObj, {job}
+    );
+}
+addJob(person, "Data Scientist");
+#+end_src
+
+****** Example B.3: Use Object Spread operator for the Pure Function
+
+#+begin_src js
+var person = {id: 88, name: "Iza"}
+
+function addJob(personObj, job){
+    return(...personObj, job); //Spread operator puts all the keys and values from personObj and put them into the new object we are creating
+} 
+addJob(person, "Data Scientist")
+#+end_src
+
+****** Pure function with React
+       - All changes to this.state should be pure
+
+***** React Component Architecture
+:PROPERTIES:
+:EXPORT_FILE_NAME: react-component-architecture
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+Where to put state and how props and state interact with each other.
+
+****** Objectives
+       - Pass State to Child Components as props
+       - Define which components own state
+       - Use stateless functional components
+
+****** How is State Shared?
+       - State is always passed from a parent down to a child component *as a prop*
+       - State should not be passed to a sibling or a parent
+
+****** Key Takeaway
+       - State should be owned by 1 component
+
+****** Bad Practice
+
+Never assign a prop to a state
+#+begin_src js
+class InstructorItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: this.props.name, // Should never assign props to the state here
+            hobbies: this.props.hobbies // this could be a duplicate, bad practice
+        };
+    }
+
+    render() {
+        return (
+                <div>
+                <h3>{this.state.name}</h3>
+                <h4>Hobbies: {this.state.hobbies.join(", ")}</h4>
+                </div>
+        )
+    }
+}
+#+end_src
+
+****** Stateless Functional Components
+       - Components implemented using a function not a class
+       - The function implements the render method only: no constructor, no state
+Here's a stateless functional component example:
+#+begin_src js
+import React from 'react';
+
+const Greeting = props => (
+        <h1> Hello, {props.name} </h1>
+);
+
+export default Greeting;
+#+end_src
+
+****** Thinking in React
+Thinkning in React is not that intuitive at the beginning. This [[https://reactjs.org/docs/thinking-in-react.html][post]] provides some instructions about how to think about solving problems in React.
+
+***** setState Gotcha!
+:PROPERTIES:
+:EXPORT_FILE_NAME: setstate-gocha
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+****** Objectives
+       - Use a function as the first parameter to setState
+       - Add a callback to setState to determine when the state is up to date
+****** setState that depends on previous state
+#+begin_src js
+this.state = {counter: 1};
+
+// New value of the counter depends on the old value
+this.setState({
+    counter: this.state.counter + 1
+})
+
+// If we do this again and for multiple times
+this.setState({
+    counter: this.state.counter + 1
+})
+#+end_src
+
+We expect the result to be 3, however it's actually 2. The reason is setState is Asychronous. It's eventually doing this:
+
+#+begin_src js
+this.setState({
+    counter: this.state.counter + 1
+});
+
+Object.assign(
+    {},
+    {counter: this.state.counter + 1}, // this.state.counter will always be 1
+    {counter: this.state.counter + 1},
+    {counter: this.state.counter + 1}
+);
+#+end_src
+
+The solution is to update function
+#+begin_src js
+this.setState((prevState, props) => {
+    return {
+        counter: prevState.counter + 1
+    };
+});
+#+end_src
+
+The rule is whenever a setState depends on previous state, use a function parameter.
+****** setState is Asynchronous
+Sometimes, I use console.log for debugging, however the method below won't work because setState is asynchronous
+#+begin_src js
+this.setState({name: "Tim"}); 
+console.log(this.state.name); // Won't be updated yet
+#+end_src
+
+The correct way should use a callback function
+#+begin_src js
+this.setState({name: "Tim"}, () => {
+    console.log(
+        "Now state is up to date",
+        this.state.name
+    );
+});
+#+end_src
+
+**** Virtual DOM, Events and Forms
+
+***** Virtual DOM
+:PROPERTIES:
+:EXPORT_FILE_NAME: virtual-dom
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+****** Objectives
+       - Describe the virtual DOM
+       - Define a synthetic events
+       - Describe changes in React 16
+
+****** Definition
+       - Virtual DOM is a data structure stored by React that tracks changes from one render state to the next.
+       - If something has changed from one render to the next, the browser's DOM is updated (Reconciliation)
+
+****** Synthetic Events
+       - Supports all the native brower events, but provides a consistent API on all browsers
+
+****** React 16, What's New?
+       - Render can return an array of JSX elements or a string
+#+begin_src js
+render(){
+    return[
+            <div key="a"> First Element</div>,
+            <div key="b"> Second Element</div>
+    ]
+}
+#+end_src
+       - [[https://www.youtube.com/watch?v=ZCuYPiUIONs][Fiber]] is a reconciliation engine
+
 * DataCamp
 * DataQuest                                  :@dataquest:
 ** Data Structure and Algorithms
