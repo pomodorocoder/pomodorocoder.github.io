@@ -964,7 +964,162 @@ common_2000
 | terrorist | 9 |
 :END:
 
-*** 
+*** Algorithms
+
+**** What is an Algorithm?
+:PROPERTIES:
+:EXPORT_FILE_NAME: what-is-an-algorithm
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+An algorithm is a well-defined series of steps for performing a task, such as making calculations or processing data. An algorithm usually has an input and an output. In reality, any code we write performs an algorithm, whether it be simple or complicated.
+
+In real life, we perform algorithms daily. Following a cookie recipe is an example of a series of steps that takes an input (the ingredients) and produces an output (the cookies).
+
+Machine learning algorithms are a special type of algorithm. There are many other kinds of algorithms. In this mission, we'll show you a few examples of what an algorithm looks like, and introduce some methods for evaluating their efficiency.
+
+**** Implementing an Algorithm
+:PROPERTIES:
+:EXPORT_FILE_NAME: implementing-an-algorithm
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+Let's start with a simple algorithm that searches for a value in a list. We could use a linear search algorithm to do this. Remember that an algorithm is a particular method for performing a task, and linear search is only one of several algorithms that can solve this problem.
+
+Linear search checks a list of items for a particular value by reviewing each item in the list until it finds the one it's looking for. If it doesn't find a matching item, we can conclude that there's no matching item in the list.
+
+You'll be working with nba, a data set containing the names and ages of National Basketball Association (NBA) players from 2013, along with some statistics.
+
+- Write a linear search algorithm to find "Kobe Bryant" in the nba data set.
+  - The first column (index 0) contains each player's name.
+  - Once the algorithm finds "Kobe Bryant", store his position (from the second column) in the variable kobe_position.
+
+Let's first write it in pandas
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+import pandas as pd
+import numpy as np
+
+path = "./data/nba_2013.csv"
+
+nba_2013 = pd.read_csv(path)
+
+kobe_position = nba_2013["pos"][nba_2013["player"] == "Kobe Bryant"]
+
+kobe_position
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+68    SG
+Name: pos, dtype: object
+:END:
+
+With more vanilla Python
+#+BEGIN_SRC python
+# When the algorithm finds Kobe in the data set, store his position in Kobe_position
+kobe_position = ""
+
+# Find Kobe in the data set
+kobe_position = ""
+for row in nba:
+    if row[0] == "Kobe Bryant":
+        kobe_position = row[1]
+#+END_SRC
+
+**** The Importance of Modularity and Abstraction
+:PROPERTIES:
+:EXPORT_FILE_NAME: the-importance-of-modularity-and-abstraction
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+As algorithms become more complex, it's important to make sure the code remains modular.
+
+Modular code consists of smaller chunks that we can reuse for other things. The most common way to make code modular is to use functions.
+
+Abstraction is the idea that someone can use our code to perform an operation without having to worry about how we wrote or implemented it.
+
+The sum() function exhibits both modularity and abstraction. We don't know exactly how the function is implemented, and we don't need to; we only need to know what it does. That makes it abstract. It also saves us the work of having to manually compute sums in many parts of our code. That makes it modular.
+
+**** Linear Search with Modular Code
+:PROPERTIES:
+:EXPORT_FILE_NAME: linear-search-with-modular-code
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+Now let's try writing a modular search function that can find the age of any player in our data set without having to repeat code.
+
+- Write a function called player_age that takes in a name parameter.
+  + The function should return the player's age from the nba data set, which we've loaded in for you.
+  + If the function doesn't find the player, it should return -1.
+  + The third column of nba (index 2) contains the players' ages.
+- Store the age of "Ray Allen" in the variable allen_age.
+- Store the age of "Kevin Durant" in the variable durant_age.
+- Store the age of "Shaquille O'Neal" in the variable shaq_age.
+
+Again let's start with pandas
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+def player_name_pd(name):
+        return nba_2013["age"][nba_2013["player"] == name]
+
+player_name_pd("Kobe Bryant")
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+68    35
+Name: age, dtype: int64
+:END:
+
+#+BEGIN_SRC python
+# player_age returns the age of a player in our NBA data set
+def player_age(name):
+    for row in nba:
+        if row[0] == name:
+            return row[2]
+    return -1
+
+allen_age = player_age("Ray Allen")
+durant_age = player_age("Kevin Durant")
+shaq_age = player_age("Shaquille O'Neal")
+#+END_SRC
+
+
+**** What makes an algorithm smart?
+:PROPERTIES:
+:EXPORT_FILE_NAME: what-makes-an-algorithm-smart
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+So far, we've been working with linear search, which is a fairly basic algorithm. When we need to perform more complicated tasks, algorithms can become very involved, especially considering that many different ones can achieve the same result.
+
+With multiple algorithms to choose from, a programmer has to make trade-offs and decide which algorithm best suits his or her needs. The most common factor to consider is time complexity.
+
+Time complexity is a measurement of how much time an algorithm takes with respect to its input size. Algorithms with smaller time complexities generally take less time and are more desirable.
+
+
+**** Constant Time Algorithms
+:PROPERTIES:
+:EXPORT_FILE_NAME: constant-time-algorithms
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+A constant algorithm takes the same amount of time to complete, regardless of the input size.
+
+For example, let's consider an algorithm that returns the first element of a list:
+
+#+begin_src python
+def first(ls):
+    return ls[0]
+#+end_src
+
+
+Regardless of list size, the algorithm returns the first element in constant time. It only takes one operation to retrieve this element, no matter how large the list.
+
+We tend to think of algorithms in terms of steps. We consider any basic operation like setting a variable or performing arithmetic a step. *Algorithms that take a constant number of steps are always constant time, even if that constant number is not 1.*
+
+Most complicated algorithms are not constant time. However, many operations within larger algorithms are constant time. Since we don't particularly care about what the constant is, we don't need to tediously count steps, as long as we're certain we'll get a constant.
+
+An example of an operation that's not constant time is a loop that touches every element in an input list. Since a larger input would necessitate more steps, we can't treat this operation as a constant. We'll look closely at cases like this soon.
+
 * Pluralsight
 
 * Front End Master

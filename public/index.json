@@ -123,7 +123,7 @@
 	"title": "Data Structure and Algorithms",
 	"tags": [],
 	"description": "",
-	"content": "  Memory and Unicode  "
+	"content": "  Memory and Unicode Algorithms  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/pluralsight/c-plus/",
@@ -224,6 +224,13 @@
 	"content": "  Intro The Basics of Binary Binary Addition Convert String to Binary Unicode Intro Strings with Unicode The Byte Data Types HexaDecimal Intro Hexadecimal Conversions Hex to Binary Bytes and Strings Read in File Data Convert to a Pandas dataframe Clean up Sentences Filter the Tokens Count the tokens Most Common Token by Year  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/",
+	"title": "Algorithms",
+	"tags": [],
+	"description": "",
+	"content": "  Implementing an Algorithm The Importance of Modularity and Abstraction Linear Search with Modular Code What makes an algorithm smart? Constant Time Algorithms  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/",
 	"title": "Object Oriented Javascript",
 	"tags": [],
@@ -259,11 +266,25 @@
 	"content": "  What is a class in JS? A constructor What does a class have  properties methods  What does it do  An Example  Define a house class (constructore)  function Building(floors){ // Constructor this.what = \u0026quot;building\u0026quot;; // Properties (per instance) this.floors = floors; } // Make an instance var myHouse = new Building(3) console.log(myHouse.what) console.log(myHouse.floors) Building.prototype.countFloors = function(){ // Methods for all instances console.log(\u0026quot;I have\u0026quot;, this.floors, \u0026quot;floors\u0026quot;) }; console.log(myHouse.countFloors())  Results building\n3\nI have 3 floors\n  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/implementing-an-algorithm/",
+	"title": "Implementing an Algorithm",
+	"tags": [],
+	"description": "",
+	"content": "Let\u0026rsquo;s start with a simple algorithm that searches for a value in a list. We could use a linear search algorithm to do this. Remember that an algorithm is a particular method for performing a task, and linear search is only one of several algorithms that can solve this problem.\nLinear search checks a list of items for a particular value by reviewing each item in the list until it finds the one it\u0026rsquo;s looking for. If it doesn\u0026rsquo;t find a matching item, we can conclude that there\u0026rsquo;s no matching item in the list.\nYou\u0026rsquo;ll be working with nba, a data set containing the names and ages of National Basketball Association (NBA) players from 2013, along with some statistics.\n Write a linear search algorithm to find \u0026ldquo;Kobe Bryant\u0026rdquo; in the nba data set.  The first column (index 0) contains each player\u0026rsquo;s name. Once the algorithm finds \u0026ldquo;Kobe Bryant\u0026rdquo;, store his position (from the second column) in the variable kobe_position.   Let\u0026rsquo;s first write it in pandas\nimport pandas as pd import numpy as np path = \u0026quot;./data/nba_2013.csv\u0026quot; nba_2013 = pd.read_csv(path) kobe_position = nba_2013[\u0026quot;pos\u0026quot;][nba_2013[\u0026quot;player\u0026quot;] == \u0026quot;Kobe Bryant\u0026quot;] kobe_position  Results 68 SG\nName: pos, dtype: object\n  With more vanilla Python\n# When the algorithm finds Kobe in the data set, store his position in Kobe_position kobe_position = \u0026quot;\u0026quot; # Find Kobe in the data set kobe_position = \u0026quot;\u0026quot; for row in nba: if row[0] == \u0026quot;Kobe Bryant\u0026quot;: kobe_position = row[1]  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/basics-of-binary/",
 	"title": "The Basics of Binary",
 	"tags": [],
 	"description": "",
 	"content": "Computers can\u0026rsquo;t store values like strings or integers directly. Instead, they store information in binary, where the only valid numbers are 0 and 1. This system makes storing data on devices like hard drives possible.\n Base 10: we normally count in \u0026ldquo;base 10.\u0026rdquo; We call this system base 10 because there are 10 possible digits - 0 through 9 Base 2: Binary is base two, because there are only two possible digits - 0 and 1  Let\u0026rsquo;s explore how binary numbers work. Convert the binary number \u0026ldquo;100\u0026rdquo; to a base 10 integer, and assign the result to base_10_100\n In python, we have to store binary numbers as strings. If we try to enter it directly as b = 10, Python will assume it\u0026rsquo;s a base 10 integer we can convert b from a string to a binary number with the int function  We need to set the optional second argument, base, to 2 (binary is base two)   base_10_100 = int(\u0026quot;100\u0026quot;, 2) base_10_100  Results 4  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/",
+	"title": "The Importance of Modularity and Abstraction",
+	"tags": [],
+	"description": "",
+	"content": "As algorithms become more complex, it\u0026rsquo;s important to make sure the code remains modular.\nModular code consists of smaller chunks that we can reuse for other things. The most common way to make code modular is to use functions.\nAbstraction is the idea that someone can use our code to perform an operation without having to worry about how we wrote or implemented it.\nThe sum() function exhibits both modularity and abstraction. We don\u0026rsquo;t know exactly how the function is implemented, and we don\u0026rsquo;t need to; we only need to know what it does. That makes it abstract. It also saves us the work of having to manually compute sums in many parts of our code. That makes it modular.\n"
 },
 {
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/binary-addition/",
@@ -273,11 +294,32 @@
 	"content": "We can add binary numbers together, just like we can with base 10 numbers\nIn the example below:\n a is in base 10 \u0026ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits \u0026ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero.  a = 9 a += 1 a  Results 10  When we add 1 to 19, we increment the leading 1 by 1, and then set the last digit to 0, giving us 20.\na = 19 a += 1 a  Results 20  When we add 1 to 99, we increment the last digit by 1, and add 1 to the first digit, but the first digit is now greater than 9, so we have to increment the invisible leading digit.\na = 99 a += 1 a  Results 100  Binary addition works the exact same way, except the highest value any single digit can represent is 1\n We\u0026rsquo;ll add binary values by defining a binary_add function that was made just for this exercise It\u0026rsquo;s not extremely important to know how it works at the moment  b = \u0026quot;1\u0026quot; def binary_add(a, b): return bin(int(a, 2) + int(b, 2))[2:] c = binary_add(b, \u0026quot;1\u0026quot;) c  Results 10  c now equals \u0026ldquo;11\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 11  c now equals \u0026ldquo;100\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 100  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/",
+	"title": "Linear Search with Modular Code",
+	"tags": [],
+	"description": "",
+	"content": "Now let\u0026rsquo;s try writing a modular search function that can find the age of any player in our data set without having to repeat code.\n Write a function called player_age that takes in a name parameter.  The function should return the player\u0026rsquo;s age from the nba data set, which we\u0026rsquo;ve loaded in for you. If the function doesn\u0026rsquo;t find the player, it should return -1. The third column of nba (index 2) contains the players\u0026rsquo; ages.  Store the age of \u0026ldquo;Ray Allen\u0026rdquo; in the variable allen_age. Store the age of \u0026ldquo;Kevin Durant\u0026rdquo; in the variable durant_age. Store the age of \u0026ldquo;Shaquille O\u0026rsquo;Neal\u0026rdquo; in the variable shaq_age.  Again let\u0026rsquo;s start with pandas\ndef player_name_pd(name): return nba_2013[\u0026quot;age\u0026quot;][nba_2013[\u0026quot;player\u0026quot;] == name] player_name_pd(\u0026quot;Kobe Bryant\u0026quot;)  Results 68 35\nName: age, dtype: int64\n  Again in Vanilla Python:\n# player_age returns the age of a player in our NBA data set def player_age(name): for row in nba: if row[0] == name: return row[2] return -1 allen_age = player_age(\u0026quot;Ray Allen\u0026quot;) durant_age = player_age(\u0026quot;Kevin Durant\u0026quot;) shaq_age = player_age(\u0026quot;Shaquille O'Neal\u0026quot;)  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-string-binary/",
 	"title": "Convert String to Binary",
 	"tags": [],
 	"description": "",
 	"content": "Computers store strings in binary, just like they do with integers. First, they split them into single characters, then convert those characters to integers. Finally, they convert those integers to binary and store them.\nWe\u0026rsquo;ll look at simple characters first - the so called ASCII characters. These include all upper and lowercase English letters, digits, and several punctuation symbols.\n We can use the ord() function to get the integer for an ASCII character. Then, we use the bin() function to convert to binary.  binary_w = bin(ord(\u0026quot;w\u0026quot;)) binary_w  Results 0b1110111  binary_bracket = bin(ord(\u0026quot;}\u0026quot;)) binary_bracket  Results 0b1111101  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/what-makes-an-algorithm-smart/",
+	"title": "What makes an algorithm smart?",
+	"tags": [],
+	"description": "",
+	"content": "So far, we\u0026rsquo;ve been working with linear search, which is a fairly basic algorithm. When we need to perform more complicated tasks, algorithms can become very involved, especially considering that many different ones can achieve the same result.\nWith multiple algorithms to choose from, a programmer has to make trade-offs and decide which algorithm best suits his or her needs. The most common factor to consider is time complexity.\nTime complexity is a measurement of how much time an algorithm takes with respect to its input size. Algorithms with smaller time complexities generally take less time and are more desirable.\n"
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/",
+	"title": "Constant Time Algorithms",
+	"tags": [],
+	"description": "",
+	"content": "A constant algorithm takes the same amount of time to complete, regardless of the input size.\nFor example, let\u0026rsquo;s consider an algorithm that returns the first element of a list:\ndef first(ls): return ls[0]  Regardless of list size, the algorithm returns the first element in constant time. It only takes one operation to retrieve this element, no matter how large the list.\nWe tend to think of algorithms in terms of steps. We consider any basic operation like setting a variable or performing arithmetic a step. Algorithms that take a constant number of steps are always constant time, even if that constant number is not 1.\nMost complicated algorithms are not constant time. However, many operations within larger algorithms are constant time. Since we don\u0026rsquo;t particularly care about what the constant is, we don\u0026rsquo;t need to tediously count steps, as long as we\u0026rsquo;re certain we\u0026rsquo;ll get a constant.\nAn example of an operation that\u0026rsquo;s not constant time is a loop that touches every element in an input list. Since a larger input would necessitate more steps, we can\u0026rsquo;t treat this operation as a constant. We\u0026rsquo;ll look closely at cases like this soon.\n"
 },
 {
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/unicode-intro/",
