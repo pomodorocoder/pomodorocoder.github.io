@@ -310,7 +310,6 @@ this.setState({name: "Tim"}, () => {
 #+end_src
 
 **** Virtual DOM, Events and Forms
-
 ***** Virtual DOM
 :PROPERTIES:
 :EXPORT_FILE_NAME: virtual-dom
@@ -517,9 +516,531 @@ print(int(b, 2) == a)
 :RESULTS:
 :END:
 
+**** Convert String to Binary
+:PROPERTIES:
+:EXPORT_FILE_NAME: memory-unicode
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+Computers store strings in binary, just like they do with integers. First, they split them into single characters, then convert those characters to integers. Finally, they convert those integers to binary and store them.
+
+We'll look at simple characters first - the so called ASCII characters. These include all upper and lowercase English letters, digits, and several punctuation symbols.
+- We can use the ~ord()~ function to get the integer for an ASCII character.
+- Then, we use the ~bin()~ function to convert to binary.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+binary_w = bin(ord("w"))
+binary_w
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+0b1110111
+:END:
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+binary_bracket = bin(ord("}"))
+binary_bracket
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+0b1111101
+:END:
+
+**** Unicode Intro
+:PROPERTIES:
+:EXPORT_FILE_NAME: unicode-intro
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+What happened to all of the other characters and alphabets in the world. ASCII can't handle them, because it only supports 255 characters. The tech community realized it needed a new standard, and created Unicode.
+
+Unicode assigns "code points" to characters. In Python, code points look like this: ~"\u3232"~
+
+We can use an encoding system to convert these code points to binary integers. The most common encoding system for Unicode is UTF-8. This encoding tells a computer which code points are associated with which integers.
+
+UTF-8 can encode values that are longer that one byte, which enables it to store all Unicode characters. It encodes characters using a variable number of bytes, which means that it also supports regular ASCII characters (which are one byte each).
+
+#+BEGIN_SRC python :session :file  :exports both :results raw drawer
+binary_1019 = bin(ord('\u1019'))
+binary_1019
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+:END:
+
+**** Strings with Unicode
+:PROPERTIES:
+:EXPORT_FILE_NAME: strings-with-unicode
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+ASCII is a subset of Unicode. Unicode implements all of the ASCII characters, as well as the additional characters that code points allow.
+
+This lets us create Unicode strings that combine both ASCII and Unicode characters.
+
+By default, Python 3 uses Unicode for all strings, and encodes them with UTF-8. That means we can enter the Unicode code points or the actual characters.
+
+**** The Byte Data Types
+:PROPERTIES:
+:EXPORT_FILE_NAME: byte-data-types
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+Python includes a data type called "bytes." It's similar to a string, except that it contains encoded bytes values.
+
+When we create an object with a bytes type from a string, we specify an encoding system (usually UTF-8).
+
+Then, we can use the ~.encode()~ method to encode the string into bytes.
+
+#+BEGIN_SRC python :session :file  :exports both :results raw drawer
+# We can make a string with some Unicode values
+superman = "Clark Kent␦"
+print(superman)
+
+# This tells Python to encode the string superman as Unicode using the UTF-8 encoding system
+# We end up with a sequence of bytes instead of a string
+superman_bytes = "Clark Kent␦".encode("utf-8")
+
+batman = "Bruce Wayne␦"
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+:END:
+
+**** HexaDecimal Intro
+:PROPERTIES:
+:EXPORT_FILE_NAME: hexadecimal-intro
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+~batman_bytes~ from the last screen prints out as ~Bruce Wayne\xe2\x90\xa6~. Similar to the ~\u~ prefix for a Unicode code point, ~\x~ is the prefix for a hexadecimal character.
+
+Just like binary is base 2 and our normal counting system is base 10, hexadecimal is base 16. The valid digits in hexadecimal are 0-9 and A-F. Here are the values corresponding to each character:
+
+- A - 10
+- B - 11
+- C - 12
+- D - 13
+- E - 14
+- F - 15
+
+In hexadecimal, 9 + 1 equals A. We use hexadecimal because it represents a byte efficiently. You may recall that a byte is eight bits, or eight binary digits. The highest value we can express in a byte is 11111111, or 255 in base 10. We can express the same value in two hexadecimal digits, FF.
+
+Programmers often use hexadecimal to display bytes instead of binary because it's more compact and easier to write out.
+
+**** Hexadecimal Conversions
+:PROPERTIES:
+:EXPORT_FILE_NAME: hexadecimal-conversions
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+Some notes on hexadecimal notions:
+- The ~\x~ prefix means "the next two digits are in hexadecimal."
+- Two hexadecimal digits equal eight binary digits, because digits can have higher values in hexadecimal (base 16). For instance, "F" is 15 in hexadecimal, but 1111 is 15 in binary.
+- Because it's shorter to display, and four binary digits always equal one hexadecimal digit, programs often use hexadecimal to print out values. This is purely for convenience.
+
+#+BEGIN_SRC python :session :file  :exports both :results raw drawer
+# F is the highest single digit in hexadecimal (base 16)
+# Its value is 15 in base 10
+print(int("F", 16))
+
+# A in base 16 has the value 10 in base 10
+print(int("A", 16))
+
+# Just like the earlier binary_add function, this adds two hexadecimal numbers
+def hexadecimal_add(a, b):
+    return hex(int(a, 16) + int(b, 16))[2:]
+
+# When we add 1 to 9 in hexadecimal, it becomes "a"
+value = "9"
+value = hexadecimal_add(value, "1")
+print(value)
+
+hex_ea = hexadecimal_add("ea", "2")
+print(hex_ea)
+
+hex_ef = hexadecimal_add("f", "e")
+print(hex_ef)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+:END:
+
+**** Hex to Binary
+:PROPERTIES:
+:EXPORT_FILE_NAME: hex-to-binary
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+We can convert hexadecimal to binary fairly easily. We can even use the ~ord()~ and ~bin()~ functions that helped us convert code points to binary.
+
+#+BEGIN_SRC python :session :file  :exports both :results raw drawer
+# One byte (eight bits) in hexadecimal (the value of the byte below is \xe2)
+hex_byte = "â"
+
+# Print the base 10 integer value for the hexadecimal byte
+print(ord(hex_byte))
+
+# This gives the exact same value. Remember that \x is just a prefix, and doesn't affect the value.
+print(int("e2", 16))
+
+# Convert the base 10 integer to binary
+print(bin(ord("â")))
+
+binary_aa = bin(ord("\xaa"))
+print(binary_aa)
+
+binary_ab = bin(ord("\xab"))
+print(binary_ab)
+#+END_SRC
+
+**** Bytes and Strings
+:PROPERTIES:
+:EXPORT_FILE_NAME: bytes-and-strings
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+There's no encoding system associated with the bytes data type. That means if we have an object with that data type, Python won't know how to display the (encoded) code points in it. For this reason, we can't mix bytes objects and strings together.
+
+#+BEGIN_SRC python :session :file  :exports both :results raw drawer
+hulk_bytes = "Bruce Banner␦".encode("utf-8")
+
+# We can't mix strings and bytes
+# For instance, if we try to replace the Unicode ␦ character as a string, it won't work, because that value has been encoded to bytes
+try:
+    hulk_bytes.replace("Banner", "")
+except Exception:
+    print("TypeError with replacement")
+
+# We can create objects of the bytes data type by putting a b in front of the quotation marks in a string
+hulk_bytes = b"Bruce Banner"
+# Now, instead of mixing strings and bytes, we can use the replace method with bytes objects instead
+hulk_bytes.replace(b"Banner", b"")
+
+thor_bytes = b"Thor"
+thor_bytes
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+Thor
+:END:
+
+Once we have a bytes object, we can decode it into a string using an encoding system. We use the .decode() method to do this.
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+# Make a bytes object with aquaman's secret identity
+aquaman_bytes = b"Who knows?"
+
+# Now, we can use the decode method, along with the encoding system (UTF-8) to turn it into a string
+aquaman = aquaman_bytes.decode("utf-8")
+
+# We can print the value and type to verify that it's a string
+print(aquaman)
+print(type(aquaman))
+
+morgan_freeman_bytes = b"Morgan Freeman"
+
+morgan_freeman = morgan_freeman_bytes.decode("utf-8")
+
+morgan_freeman
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+u'Morgan Freeman'
+:END:
+
+**** Read in File Data
+:PROPERTIES:
+:EXPORT_FILE_NAME: read-in-file-data
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+Now that we understand Unicode, we can go ahead and read our data in.
+
+#+BEGIN_SRC python :session :file  :exports both :results raw drawer
+# We can read our data in using csvreader
+import csv
+path = "./data/"
+
+# When we open a file, we can specify the system used to encode it (in this case, UTF-8).
+f = open(path+"sentences_cia.csv", 'r', encoding="utf-8")
+csvreader = csv.reader(f)
+sentences_cia = list(csvreader)
+
+# The data consists of two columns
+# The first column contains the year, and the second contains a sentence from a CIA report written in that year
+# Print the first column of the second row
+print(sentences_cia[1][0])
+
+# Print the second column of the second row
+print(sentences_cia[1][1])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+:END:
+
+**** Convert to a Pandas dataframe
+:PROPERTIES:
+:EXPORT_FILE_NAME: convert-to-a-pandas-dataframe
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+To make this easier for ourselves, let's convert our sentences to a pandas dataframe.
+
+Having a dataframe will make processing and analysis much simpler because we can use the .apply() method.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+import pandas as pd
+df = pd.read_csv(path+"sentences_cia.csv")
+df = df.iloc[:,:2]
+df.head()
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+   year                                          statement
+0  1997  The FBI information included that al-Mairi's b...
+1  1997  The FBI information included that al-Mairi's b...
+2  1997  For example, on October 12, 2004, another CIA ...
+3  1997  On October 16, 2001, an email from a CTC offic...
+4  1997  For example, on October 12, 2004, another CIA ...
+:END:
+
+**** Clean up Sentences
+:PROPERTIES:
+:EXPORT_FILE_NAME: clean-up-sentences
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+Now that we've formatted our data nicely, we need to process the strings to count term occurences.
+
+First, though, we need to clean them up by removing extraneous symbols. We only really care about letters, digits, and spaces.
+
+Luckily, we can check the integer code of each character using ord() to see if it's a character we want to keep.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+# The integer codes for all the characters we want to keep
+good_characters = [48, 49, 50, 51, 52, 53, 54, 55, 56, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 32]
+
+sentences_cia = df.copy()
+
+sentence_15 = sentences_cia["statement"][14]
+
+# Iterate over the characters in the sentence, and only take those whose integer representations are in good_characters
+# This will construct a list of single characters
+cleaned_sentence_15_list = [s for s in sentence_15 if ord(s) in good_characters]
+
+# Join the list together, separated by "" (no space), which creates a string again
+cleaned_sentence_15 = "".join(cleaned_sentence_15_list)
+
+# Define the clean function
+def clear_str(my_str):
+    temp_str = [s for s in my_str if ord(s) in good_characters]
+    return "".join(temp_str)
+
+sentences_cia["cleaned_statement"] = sentences_cia["statement"].apply(clear_str)
+sentences_cia.head()
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+   year                                          statement  \
+0  1997  The FBI information included that al-Mairi's b...   
+1  1997  The FBI information included that al-Mairi's b...   
+2  1997  For example, on October 12, 2004, another CIA ...   
+3  1997  On October 16, 2001, an email from a CTC offic...   
+4  1997  For example, on October 12, 2004, another CIA ...   
+
+                                   cleaned_statement  
+0  The FBI information included that alMairis bro...  
+1  The FBI information included that alMairis bro...  
+2  For example on October 12 2004 another CIA det...  
+3  On October 16 2001 an email from a CTC officer...  
+4  For example on October 12 2004 another CIA det...  
+:END:
+
+Now we need to combine the sentences and convert them to tokens.
+
+The eventual goal is to count up how many times each term occurs.
+
+- Tokenize combined_statements by splitting it into words on the spaces.
+  + You should end up with a list of all the words in combined_statements.
+  + Assign the result to statement_tokens.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+combined_statements = " ".join(sentences_cia["cleaned_statement"])
+statement_tokens = combined_statements.split(" ")
+# statement_tokens[:10]
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+| The | FBI | information | included | that | alMairis | brother | traveled | to | Afghanistan |
+:END:
+
+**** Filter the Tokens
+:PROPERTIES:
+:EXPORT_FILE_NAME: filter-the-tokens
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+The problem is that the most common words in the English language are ones that are relatively uninteresting to us right now -- words like "the", "a", and so on. These words are called stopwords - words that don't add much information to our analysis.
+
+It's common to filter out any words on a list of known stopwords. What we'll do here for the sake of simplicity is filter out any words less than five characters long. This should remove most stopwords.
+
+- Filter the statement_tokens list so that it only contains tokens that are at least five characters long.
+- Assign the result to filtered_tokens.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+filtered_tokens = [s for s in statement_tokens if len(s) >= 5]
+#filtered_tokens[:10]
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+| information | included | alMairis | brother | traveled | Afghanistan | train | Ladencamps | information | included |
+:END:
+
+**** Count the tokens
+:PROPERTIES:
+:EXPORT_FILE_NAME: count-the-tokens
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+Now that we've filtered the tokens, we can count how many times each one occurs. The Counter object from the collections library will help us with this.
+
+Counter takes a list as input. It creates a dictionary where the keys are list items, and the values are the number of times those items appear in the list.
+
+- Count the items in filtered_tokens and assign the result to filtered_token_counts
+- Get the three most common items in filtered_token_counts, and assign the result to common_tokens.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+from collections import Counter
+filtered_token_counts = Counter(filtered_tokens)
+common_tokens = filtered_token_counts.most_common(3)
+common_tokens
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+| interrogation | 391 |
+| information   | 375 |
+| REDACTED      | 375 |
+:END:
+
+**** Most Common Token by Year
+:PROPERTIES:
+:EXPORT_FILE_NAME: most-common-token-by-year
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+# sentences_cia has been loaded in.
+# It already has the cleaned_statement column.
+def most_common_year(my_year):
+    my_df = sentences_cia[sentences_cia["year"] == my_year]
+    combined_statements = " ".join(my_df["cleaned_statement"])
+    statement_tokens = combined_statements.split(" ")
+    filtered_tokens = [s for s in statement_tokens if len(s) >= 5]
+    filtered_token_counts = Counter(filtered_tokens)
+    common_tokens = filtered_token_counts.most_common(2)
+    return common_tokens
+
+common_2000 = most_common_year(2000)
+common_2002 = most_common_year(2002)
+common_2013 = most_common_year(2013)
+
+common_2000
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+| Ahmad     | 9 |
+| terrorist | 9 |
+:END:
+
+*** 
 * Pluralsight
 
 * Front End Master
+
+** D3
+** Deep Javascript Foundations
+** Data Structure and Algorithms in Javascript
+
+*** Object Oriented JavaScript
+
+**** Pseudoclassical Javascript
+:PROPERTIES:
+:EXPORT_FILE_NAME: pseudoclassical-js
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+     - Javascript is an OOP language
+     - But it doesn't have a "formal" way of creatingg class constructors
+     - class is actually defined in the ES6 (ES2015) updates
+
+**** Defining a Class
+:PROPERTIES:
+:EXPORT_FILE_NAME: define-class
+:EXPORT_DATE: <2017-11-13 Mon>
+:END:
+     - What is a class in JS? A constructor
+     - What does a class have
+       + properties
+       + methods
+     - What does it do
+
+***** An Example
+       - Define a house class (constructore)
+ #+begin_src js exports: both
+function Building(floors){      // Constructor
+    this.what = "building";     // Properties (per instance)
+    this.floors = floors;
+}
+
+// Make an instance
+var myHouse = new Building(3)
+
+console.log(myHouse.what)
+console.log(myHouse.floors)
+
+Building.prototype.countFloors = function(){ // Methods for all instances
+    console.log("I have", this.floors, "floors")
+};
+console.log(myHouse.countFloors())
+ #+end_src
+
+ #+RESULTS:
+ : building
+ : 3
+ : I have 3 floors
+
+*** Stacks & Queues
+
+*** Recursion
+
+*** Time Complexity
+
+*** Elementary Sorting
+
+*** Sorting Algorithms
+
+*** Trees & Searching
+
+*** Reviewing
+
+*** Binary Trees
+
+*** Graphs & Paths
+
+*** Depth & Breadth-First Search
+
+*** Hash Table
 
 * Youtube
 

@@ -6,17 +6,26 @@
     <description>Recent content on Pomodoro Coder</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Nov 2017 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 13 Nov 2017 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://pomodorocoder.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Pseudoclassical Javascript</title>
+      <link>https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/pseudoclassical-js/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/pseudoclassical-js/</guid>
+      <description> Javascript is an OOP language But it doesn&amp;rsquo;t have a &amp;ldquo;formal&amp;rdquo; way of creatingg class constructors class is actually defined in the ES6 (ES2015) updates  </description>
+    </item>
+    
+    <item>
       <title>Intro</title>
-      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-unicode-intro/</link>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/memory-unicode-intro/</link>
       <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
       
-      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-unicode-intro/</guid>
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/memory-unicode-intro/</guid>
       <description>In this mission, we&amp;rsquo;ll learn how computers store values in memory. We will look at the CIA memos data. Here&amp;rsquo;s a preview of the data
 year,statement,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;s brother &amp;quot;&amp;quot;traveled to Afghanistan in 1997-1998 to train in Bin - Ladencamps.&amp;quot;&amp;quot;&amp;quot;,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;s brother &amp;quot;&amp;quot;traveled to Afghanistan in 1997-1998 to train in Bin - Ladencamps.&amp;quot;&amp;quot;&amp;quot;,,,  The file consists of one long string. To use it effectively, we&amp;rsquo;d need to parse it and convert it into rows and columns.</description>
     </item>
@@ -31,24 +40,183 @@ year,statement,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;
     </item>
     
     <item>
+      <title>Defining a Class</title>
+      <link>https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/define-class/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/define-class/</guid>
+      <description>What is a class in JS? A constructor What does a class have  properties methods  What does it do  An Example  Define a house class (constructore)  function Building(floors){ // Constructor this.what = &amp;quot;building&amp;quot;; // Properties (per instance) this.floors = floors; } // Make an instance var myHouse = new Building(3) console.log(myHouse.what) console.log(myHouse.floors) Building.prototype.countFloors = function(){ // Methods for all instances console.log(&amp;quot;I have&amp;quot;, this.floors, &amp;quot;floors&amp;quot;) }; console.</description>
+    </item>
+    
+    <item>
       <title>The Basics of Binary</title>
-      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/basics-of-binary/</link>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/basics-of-binary/</link>
       <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
       
-      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/basics-of-binary/</guid>
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/basics-of-binary/</guid>
       <description>Computers can&amp;rsquo;t store values like strings or integers directly. Instead, they store information in binary, where the only valid numbers are 0 and 1. This system makes storing data on devices like hard drives possible.
  Base 10: we normally count in &amp;ldquo;base 10.&amp;rdquo; We call this system base 10 because there are 10 possible digits - 0 through 9 Base 2: Binary is base two, because there are only two possible digits - 0 and 1  Let&amp;rsquo;s explore how binary numbers work.</description>
     </item>
     
     <item>
       <title>Binary Addition</title>
-      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/binary-addition/</link>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/binary-addition/</link>
       <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
       
-      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/binary-addition/</guid>
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/binary-addition/</guid>
       <description>We can add binary numbers together, just like we can with base 10 numbers
 In the example below:
  a is in base 10 &amp;ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits &amp;ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero.</description>
+    </item>
+    
+    <item>
+      <title>Convert String to Binary</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-string-binary/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-string-binary/</guid>
+      <description>Computers store strings in binary, just like they do with integers. First, they split them into single characters, then convert those characters to integers. Finally, they convert those integers to binary and store them.
+We&amp;rsquo;ll look at simple characters first - the so called ASCII characters. These include all upper and lowercase English letters, digits, and several punctuation symbols.
+ We can use the ord() function to get the integer for an ASCII character.</description>
+    </item>
+    
+    <item>
+      <title>Unicode Intro</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/unicode-intro/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/unicode-intro/</guid>
+      <description>What happened to all of the other characters and alphabets in the world. ASCII can&amp;rsquo;t handle them, because it only supports 255 characters. The tech community realized it needed a new standard, and created Unicode.
+Unicode assigns &amp;ldquo;code points&amp;rdquo; to characters. In Python, code points look like this: &amp;quot;\u3232&amp;quot;
+We can use an encoding system to convert these code points to binary integers. The most common encoding system for Unicode is UTF-8.</description>
+    </item>
+    
+    <item>
+      <title>Strings with Unicode</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/strings-with-unicode/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/strings-with-unicode/</guid>
+      <description>ASCII is a subset of Unicode. Unicode implements all of the ASCII characters, as well as the additional characters that code points allow.
+This lets us create Unicode strings that combine both ASCII and Unicode characters.
+By default, Python 3 uses Unicode for all strings, and encodes them with UTF-8. That means we can enter the Unicode code points or the actual characters.</description>
+    </item>
+    
+    <item>
+      <title>The Byte Data Types</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/byte-data-types/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/byte-data-types/</guid>
+      <description>Python includes a data type called &amp;ldquo;bytes.&amp;rdquo; It&amp;rsquo;s similar to a string, except that it contains encoded bytes values.
+When we create an object with a bytes type from a string, we specify an encoding system (usually UTF-8).
+Then, we can use the .encode() method to encode the string into bytes.
+# We can make a string with some Unicode values superman = &amp;quot;Clark Kent␦&amp;quot; print(superman) # This tells Python to encode the string superman as Unicode using the UTF-8 encoding system # We end up with a sequence of bytes instead of a string superman_bytes = &amp;quot;Clark Kent␦&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>HexaDecimal Intro</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hexadecimal-intro/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hexadecimal-intro/</guid>
+      <description>batman_bytes from the last screen prints out as Bruce Wayne\xe2\x90\xa6. Similar to the \u prefix for a Unicode code point, \x is the prefix for a hexadecimal character.
+Just like binary is base 2 and our normal counting system is base 10, hexadecimal is base 16. The valid digits in hexadecimal are 0-9 and A-F. Here are the values corresponding to each character:
+ A - 10 B - 11 C - 12 D - 13 E - 14 F - 15  In hexadecimal, 9 + 1 equals A.</description>
+    </item>
+    
+    <item>
+      <title>Hexadecimal Conversions</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hexadecimal-conversions/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hexadecimal-conversions/</guid>
+      <description>Some notes on hexadecimal notions:
+ The \x prefix means &amp;ldquo;the next two digits are in hexadecimal.&amp;rdquo; Two hexadecimal digits equal eight binary digits, because digits can have higher values in hexadecimal (base 16). For instance, &amp;ldquo;F&amp;rdquo; is 15 in hexadecimal, but 1111 is 15 in binary. Because it&amp;rsquo;s shorter to display, and four binary digits always equal one hexadecimal digit, programs often use hexadecimal to print out values. This is purely for convenience.</description>
+    </item>
+    
+    <item>
+      <title>Hex to Binary</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hex-to-binary/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/hex-to-binary/</guid>
+      <description>We can convert hexadecimal to binary fairly easily. We can even use the ord() and bin() functions that helped us convert code points to binary.
+# One byte (eight bits) in hexadecimal (the value of the byte below is \xe2) hex_byte = &amp;quot;â&amp;quot; # Print the base 10 integer value for the hexadecimal byte print(ord(hex_byte)) # This gives the exact same value. Remember that \x is just a prefix, and doesn&#39;t affect the value.</description>
+    </item>
+    
+    <item>
+      <title>Bytes and Strings</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/bytes-and-strings/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/bytes-and-strings/</guid>
+      <description>There&amp;rsquo;s no encoding system associated with the bytes data type. That means if we have an object with that data type, Python won&amp;rsquo;t know how to display the (encoded) code points in it. For this reason, we can&amp;rsquo;t mix bytes objects and strings together.
+hulk_bytes = &amp;quot;Bruce Banner␦&amp;quot;.encode(&amp;quot;utf-8&amp;quot;) # We can&#39;t mix strings and bytes # For instance, if we try to replace the Unicode ␦ character as a string, it won&#39;t work, because that value has been encoded to bytes try: hulk_bytes.</description>
+    </item>
+    
+    <item>
+      <title>Read in File Data</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/read-in-file-data/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/read-in-file-data/</guid>
+      <description>Now that we understand Unicode, we can go ahead and read our data in.
+# We can read our data in using csvreader import csv path = &amp;quot;./data/&amp;quot; # When we open a file, we can specify the system used to encode it (in this case, UTF-8). f = open(path+&amp;quot;sentences_cia.csv&amp;quot;, &#39;r&#39;, encoding=&amp;quot;utf-8&amp;quot;) csvreader = csv.reader(f) sentences_cia = list(csvreader) # The data consists of two columns # The first column contains the year, and the second contains a sentence from a CIA report written in that year # Print the first column of the second row print(sentences_cia[1][0]) # Print the second column of the second row print(sentences_cia[1][1])  Results 1997</description>
+    </item>
+    
+    <item>
+      <title>Convert to a Pandas dataframe</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-to-a-pandas-dataframe/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-to-a-pandas-dataframe/</guid>
+      <description>To make this easier for ourselves, let&amp;rsquo;s convert our sentences to a pandas dataframe.
+Having a dataframe will make processing and analysis much simpler because we can use the .apply() method.
+import pandas as pd df = pd.read_csv(path+&amp;quot;sentences_cia.csv&amp;quot;) df = df.iloc[:,:2] df.head()     year statement     1997 The FBI information included that al-Mairi&amp;rsquo;s b&amp;hellip;   1997 The FBI information included that al-Mairi&amp;rsquo;s b&amp;hellip;   1997 For example, on October 12, 2004, another CIA &amp;hellip;   1997 On October 16, 2001, an email from a CTC offic&amp;hellip;   1997 For example, on October 12, 2004, another CIA &amp;hellip;    </description>
+    </item>
+    
+    <item>
+      <title>Clean up Sentences</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/clean-up-sentences/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/clean-up-sentences/</guid>
+      <description>Now that we&amp;rsquo;ve formatted our data nicely, we need to process the strings to count term occurences.
+First, though, we need to clean them up by removing extraneous symbols. We only really care about letters, digits, and spaces.
+Luckily, we can check the integer code of each character using ord() to see if it&amp;rsquo;s a character we want to keep.
+# The integer codes for all the characters we want to keep good_characters = [48, 49, 50, 51, 52, 53, 54, 55, 56, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 32] sentences_cia = df.</description>
+    </item>
+    
+    <item>
+      <title>Filter the Tokens</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/filter-the-tokens/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/filter-the-tokens/</guid>
+      <description>The problem is that the most common words in the English language are ones that are relatively uninteresting to us right now &amp;ndash; words like &amp;ldquo;the&amp;rdquo;, &amp;ldquo;a&amp;rdquo;, and so on. These words are called stopwords - words that don&amp;rsquo;t add much information to our analysis.
+It&amp;rsquo;s common to filter out any words on a list of known stopwords. What we&amp;rsquo;ll do here for the sake of simplicity is filter out any words less than five characters long.</description>
+    </item>
+    
+    <item>
+      <title>Count the tokens</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/count-the-tokens/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/count-the-tokens/</guid>
+      <description>Now that we&amp;rsquo;ve filtered the tokens, we can count how many times each one occurs. The Counter object from the collections library will help us with this.
+Counter takes a list as input. It creates a dictionary where the keys are list items, and the values are the number of times those items appear in the list.
+ Count the items in filtered_tokens and assign the result to filtered_token_counts Get the three most common items in filtered_token_counts, and assign the result to common_tokens.</description>
+    </item>
+    
+    <item>
+      <title>Most Common Token by Year</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/most-common-token-by-year/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/most-common-token-by-year/</guid>
+      <description>Now put everything together, let&amp;rsquo;s write a function the count the most common tokens by a selected year
+# sentences_cia has been loaded in. # It already has the cleaned_statement column. def most_common_year(my_year): my_df = sentences_cia[sentences_cia[&amp;quot;year&amp;quot;] == my_year] combined_statements = &amp;quot; &amp;quot;.join(my_df[&amp;quot;cleaned_statement&amp;quot;]) statement_tokens = combined_statements.split(&amp;quot; &amp;quot;) filtered_tokens = [s for s in statement_tokens if len(s) &amp;gt;= 5] filtered_token_counts = Counter(filtered_tokens) common_tokens = filtered_token_counts.most_common(2) return common_tokens common_2000 = most_common_year(2000) common_2002 = most_common_year(2002) common_2013 = most_common_year(2013) common_2000     Top tokens Counts     Ahmad 9   terrorist 9    </description>
     </item>
     
     <item>
