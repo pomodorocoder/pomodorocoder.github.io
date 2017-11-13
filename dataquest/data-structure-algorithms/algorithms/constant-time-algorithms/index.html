@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.30.2" />
 
-<title>Path Planning :: Pomodoro Coder</title>
+<title>Constant Time Algorithms :: Pomodoro Coder</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 
     
   </head>
-  <body data-url="/udacity/self-driving/path-planning/">
+  <body data-url="/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/">
     
       <div id="headermain"></div>
 <nav id="sidebar" class="">
@@ -64,10 +64,9 @@
             <li data-nav-id="/" class="dd-item">
             <a href="/"><i class="fa fa-fw fa-home"></i></a>
             </li>
-    <li data-nav-id="/udacity/" class="dd-item parent">
+    <li data-nav-id="/udacity/" class="dd-item">
       <a href="/udacity/">
-        <span>Udacity</span>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+        <span>Udacity</span><i class="fa fa-angle-right fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/udacity/deep-learning/" class="dd-item">
@@ -97,10 +96,9 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/udacity/self-driving/" class="dd-item parent">
+    <li data-nav-id="/udacity/self-driving/" class="dd-item">
       <a href="/udacity/self-driving/">
-        <span><i class='fa fa-car'></i> Self Driving</span>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+        <span><i class='fa fa-car'></i> Self Driving</span><i class="fa fa-angle-right fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/udacity/self-driving/computer-vision-and-deep-learning/" class="dd-item">
@@ -113,7 +111,7 @@
         <span><i class='fa fa-location-arrow'></i> Sensor Fusion, Localization and Control</span>
       </a>
     </li>
-    <li data-nav-id="/udacity/self-driving/path-planning/" class="dd-item parent active">
+    <li data-nav-id="/udacity/self-driving/path-planning/" class="dd-item">
       <a href="/udacity/self-driving/path-planning/">
         <span><i class='fa fa-road'></i> Path Planning</span>
       </a>
@@ -228,14 +226,16 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/dataquest/" class="dd-item">
+    <li data-nav-id="/dataquest/" class="dd-item parent">
       <a href="/dataquest/">
-        <span>DataQuest</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>DataQuest</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
-    <li data-nav-id="/dataquest/data-structure-algorithms/" class="dd-item">
+    <li data-nav-id="/dataquest/data-structure-algorithms/" class="dd-item parent">
       <a href="/dataquest/data-structure-algorithms/">
-        <span>Data Structure and Algorithms</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>Data Structure and Algorithms</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/dataquest/data-structure-algorithms/memory-and-unicode/" class="dd-item">
@@ -330,9 +330,10 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/" class="dd-item">
+    <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/" class="dd-item parent">
       <a href="/dataquest/data-structure-algorithms/algorithms/">
-        <span>Algorithms</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>Algorithms</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
       <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/implementing-an-algorithm/" class="dd-item">
@@ -355,7 +356,7 @@
           <span>What makes an algorithm smart?</span>
         </a>
     </li>
-      <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/" class="dd-item">
+      <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/" class="dd-item active">
         <a href="/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/">
           <span>Constant Time Algorithms</span>
         </a>
@@ -492,7 +493,12 @@
 
 
 
- <a href='/'></a> > <a href='/udacity/'>Udacity</a> > <a href='/udacity/self-driving/'>Self Driving</a> > Path Planning
+
+
+
+ <a href='/'></a> > <a href='/dataquest/'>DataQuest</a> > <a href='/dataquest/data-structure-algorithms/'>Data Structure and Algorithms</a> > <a href='/dataquest/data-structure-algorithms/algorithms/'>Algorithms</a> > Constant Time Algorithms
+
+ 
 
  
 
@@ -517,7 +523,7 @@
 
 <div id="body-inner">
   
-    <h1>Path Planning</h1>
+    <h1>Constant Time Algorithms</h1>
   
 
 
@@ -525,18 +531,21 @@
     
     
     
+    <p>A constant algorithm takes the same amount of time to complete, regardless of the input size.</p>
 
+<p>For example, let&rsquo;s consider an algorithm that returns the first element of a list:</p>
 
+<pre><code class="language-python">def first(ls):
+    return ls[0]
+</code></pre>
 
-<ul class="children children-h3">
-</ul>
+<p>Regardless of list size, the algorithm returns the first element in constant time. It only takes one operation to retrieve this element, no matter how large the list.</p>
 
-<hr />
+<p>We tend to think of algorithms in terms of steps. We consider any basic operation like setting a variable or performing arithmetic a step. <strong>Algorithms that take a constant number of steps are always constant time, even if that constant number is not 1.</strong></p>
 
+<p>Most complicated algorithms are not constant time. However, many operations within larger algorithms are constant time. Since we don&rsquo;t particularly care about what the constant is, we don&rsquo;t need to tediously count steps, as long as we&rsquo;re certain we&rsquo;ll get a constant.</p>
 
-
-
-
+<p>An example of an operation that&rsquo;s not constant time is a loop that touches every element in an input list. Since a larger input would necessitate more steps, we can&rsquo;t treat this operation as a constant. We&rsquo;ll look closely at cases like this soon.</p>
 
 
     
@@ -548,8 +557,8 @@
 </div>
 
 <div id="navigation">
-<a class="nav nav-prev" href="/udacity/self-driving/sensor-fusion-localization-control/" title="Sensor Fusion, Localization and Control"> <i class="fa fa-chevron-left"></i></a>
-    <a class="nav nav-next" href="/udemy/" title="Udemy" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/dataquest/data-structure-algorithms/algorithms/what-makes-an-algorithm-smart/" title="What makes an algorithm smart?"> <i class="fa fa-chevron-left"></i></a>
+    <a class="nav nav-next" href="/pluralsight/" title="Pluralsight" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

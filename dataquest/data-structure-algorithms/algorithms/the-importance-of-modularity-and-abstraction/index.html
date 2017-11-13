@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.30.2" />
 
-<title>Path Planning :: Pomodoro Coder</title>
+<title>The Importance of Modularity and Abstraction :: Pomodoro Coder</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 
     
   </head>
-  <body data-url="/udacity/self-driving/path-planning/">
+  <body data-url="/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/">
     
       <div id="headermain"></div>
 <nav id="sidebar" class="">
@@ -64,10 +64,9 @@
             <li data-nav-id="/" class="dd-item">
             <a href="/"><i class="fa fa-fw fa-home"></i></a>
             </li>
-    <li data-nav-id="/udacity/" class="dd-item parent">
+    <li data-nav-id="/udacity/" class="dd-item">
       <a href="/udacity/">
-        <span>Udacity</span>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+        <span>Udacity</span><i class="fa fa-angle-right fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/udacity/deep-learning/" class="dd-item">
@@ -97,10 +96,9 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/udacity/self-driving/" class="dd-item parent">
+    <li data-nav-id="/udacity/self-driving/" class="dd-item">
       <a href="/udacity/self-driving/">
-        <span><i class='fa fa-car'></i> Self Driving</span>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+        <span><i class='fa fa-car'></i> Self Driving</span><i class="fa fa-angle-right fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/udacity/self-driving/computer-vision-and-deep-learning/" class="dd-item">
@@ -113,7 +111,7 @@
         <span><i class='fa fa-location-arrow'></i> Sensor Fusion, Localization and Control</span>
       </a>
     </li>
-    <li data-nav-id="/udacity/self-driving/path-planning/" class="dd-item parent active">
+    <li data-nav-id="/udacity/self-driving/path-planning/" class="dd-item">
       <a href="/udacity/self-driving/path-planning/">
         <span><i class='fa fa-road'></i> Path Planning</span>
       </a>
@@ -228,14 +226,16 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/dataquest/" class="dd-item">
+    <li data-nav-id="/dataquest/" class="dd-item parent">
       <a href="/dataquest/">
-        <span>DataQuest</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>DataQuest</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
-    <li data-nav-id="/dataquest/data-structure-algorithms/" class="dd-item">
+    <li data-nav-id="/dataquest/data-structure-algorithms/" class="dd-item parent">
       <a href="/dataquest/data-structure-algorithms/">
-        <span>Data Structure and Algorithms</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>Data Structure and Algorithms</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/dataquest/data-structure-algorithms/memory-and-unicode/" class="dd-item">
@@ -330,9 +330,10 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/" class="dd-item">
+    <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/" class="dd-item parent">
       <a href="/dataquest/data-structure-algorithms/algorithms/">
-        <span>Algorithms</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>Algorithms</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
       <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/implementing-an-algorithm/" class="dd-item">
@@ -340,7 +341,7 @@
           <span>Implementing an Algorithm</span>
         </a>
     </li>
-      <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/" class="dd-item">
+      <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/" class="dd-item active">
         <a href="/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/">
           <span>The Importance of Modularity and Abstraction</span>
         </a>
@@ -492,7 +493,12 @@
 
 
 
- <a href='/'></a> > <a href='/udacity/'>Udacity</a> > <a href='/udacity/self-driving/'>Self Driving</a> > Path Planning
+
+
+
+ <a href='/'></a> > <a href='/dataquest/'>DataQuest</a> > <a href='/dataquest/data-structure-algorithms/'>Data Structure and Algorithms</a> > <a href='/dataquest/data-structure-algorithms/algorithms/'>Algorithms</a> > The Importance of Modularity and Abstraction
+
+ 
 
  
 
@@ -517,7 +523,7 @@
 
 <div id="body-inner">
   
-    <h1>Path Planning</h1>
+    <h1>The Importance of Modularity and Abstraction</h1>
   
 
 
@@ -525,18 +531,13 @@
     
     
     
+    <p>As algorithms become more complex, it&rsquo;s important to make sure the code remains modular.</p>
 
+<p>Modular code consists of smaller chunks that we can reuse for other things. The most common way to make code modular is to use functions.</p>
 
+<p>Abstraction is the idea that someone can use our code to perform an operation without having to worry about how we wrote or implemented it.</p>
 
-<ul class="children children-h3">
-</ul>
-
-<hr />
-
-
-
-
-
+<p>The sum() function exhibits both modularity and abstraction. We don&rsquo;t know exactly how the function is implemented, and we don&rsquo;t need to; we only need to know what it does. That makes it abstract. It also saves us the work of having to manually compute sums in many parts of our code. That makes it modular.</p>
 
 
     
@@ -548,8 +549,8 @@
 </div>
 
 <div id="navigation">
-<a class="nav nav-prev" href="/udacity/self-driving/sensor-fusion-localization-control/" title="Sensor Fusion, Localization and Control"> <i class="fa fa-chevron-left"></i></a>
-    <a class="nav nav-next" href="/udemy/" title="Udemy" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/dataquest/data-structure-algorithms/algorithms/implementing-an-algorithm/" title="Implementing an Algorithm"> <i class="fa fa-chevron-left"></i></a>
+    <a class="nav nav-next" href="/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/" title="Linear Search with Modular Code" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

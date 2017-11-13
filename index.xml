@@ -49,6 +49,16 @@ year,statement,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;
     </item>
     
     <item>
+      <title>Implementing an Algorithm</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/implementing-an-algorithm/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/implementing-an-algorithm/</guid>
+      <description>Let&amp;rsquo;s start with a simple algorithm that searches for a value in a list. We could use a linear search algorithm to do this. Remember that an algorithm is a particular method for performing a task, and linear search is only one of several algorithms that can solve this problem.
+Linear search checks a list of items for a particular value by reviewing each item in the list until it finds the one it&amp;rsquo;s looking for.</description>
+    </item>
+    
+    <item>
       <title>The Basics of Binary</title>
       <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/basics-of-binary/</link>
       <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
@@ -56,6 +66,18 @@ year,statement,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;
       <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/basics-of-binary/</guid>
       <description>Computers can&amp;rsquo;t store values like strings or integers directly. Instead, they store information in binary, where the only valid numbers are 0 and 1. This system makes storing data on devices like hard drives possible.
  Base 10: we normally count in &amp;ldquo;base 10.&amp;rdquo; We call this system base 10 because there are 10 possible digits - 0 through 9 Base 2: Binary is base two, because there are only two possible digits - 0 and 1  Let&amp;rsquo;s explore how binary numbers work.</description>
+    </item>
+    
+    <item>
+      <title>The Importance of Modularity and Abstraction</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/</guid>
+      <description>As algorithms become more complex, it&amp;rsquo;s important to make sure the code remains modular.
+Modular code consists of smaller chunks that we can reuse for other things. The most common way to make code modular is to use functions.
+Abstraction is the idea that someone can use our code to perform an operation without having to worry about how we wrote or implemented it.
+The sum() function exhibits both modularity and abstraction.</description>
     </item>
     
     <item>
@@ -70,6 +92,16 @@ In the example below:
     </item>
     
     <item>
+      <title>Linear Search with Modular Code</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/</guid>
+      <description>Now let&amp;rsquo;s try writing a modular search function that can find the age of any player in our data set without having to repeat code.
+ Write a function called player_age that takes in a name parameter.  The function should return the player&amp;rsquo;s age from the nba data set, which we&amp;rsquo;ve loaded in for you. If the function doesn&amp;rsquo;t find the player, it should return -1. The third column of nba (index 2) contains the players&amp;rsquo; ages.</description>
+    </item>
+    
+    <item>
       <title>Convert String to Binary</title>
       <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/convert-string-binary/</link>
       <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
@@ -78,6 +110,29 @@ In the example below:
       <description>Computers store strings in binary, just like they do with integers. First, they split them into single characters, then convert those characters to integers. Finally, they convert those integers to binary and store them.
 We&amp;rsquo;ll look at simple characters first - the so called ASCII characters. These include all upper and lowercase English letters, digits, and several punctuation symbols.
  We can use the ord() function to get the integer for an ASCII character.</description>
+    </item>
+    
+    <item>
+      <title>What makes an algorithm smart?</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/what-makes-an-algorithm-smart/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/what-makes-an-algorithm-smart/</guid>
+      <description>So far, we&amp;rsquo;ve been working with linear search, which is a fairly basic algorithm. When we need to perform more complicated tasks, algorithms can become very involved, especially considering that many different ones can achieve the same result.
+With multiple algorithms to choose from, a programmer has to make trade-offs and decide which algorithm best suits his or her needs. The most common factor to consider is time complexity.
+Time complexity is a measurement of how much time an algorithm takes with respect to its input size.</description>
+    </item>
+    
+    <item>
+      <title>Constant Time Algorithms</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/</guid>
+      <description>A constant algorithm takes the same amount of time to complete, regardless of the input size.
+For example, let&amp;rsquo;s consider an algorithm that returns the first element of a list:
+def first(ls): return ls[0]  Regardless of list size, the algorithm returns the first element in constant time. It only takes one operation to retrieve this element, no matter how large the list.
+We tend to think of algorithms in terms of steps.</description>
     </item>
     
     <item>

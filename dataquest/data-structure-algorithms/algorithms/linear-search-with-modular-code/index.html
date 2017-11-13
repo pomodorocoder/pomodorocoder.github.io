@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.30.2" />
 
-<title>Path Planning :: Pomodoro Coder</title>
+<title>Linear Search with Modular Code :: Pomodoro Coder</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 
     
   </head>
-  <body data-url="/udacity/self-driving/path-planning/">
+  <body data-url="/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/">
     
       <div id="headermain"></div>
 <nav id="sidebar" class="">
@@ -64,10 +64,9 @@
             <li data-nav-id="/" class="dd-item">
             <a href="/"><i class="fa fa-fw fa-home"></i></a>
             </li>
-    <li data-nav-id="/udacity/" class="dd-item parent">
+    <li data-nav-id="/udacity/" class="dd-item">
       <a href="/udacity/">
-        <span>Udacity</span>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+        <span>Udacity</span><i class="fa fa-angle-right fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/udacity/deep-learning/" class="dd-item">
@@ -97,10 +96,9 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/udacity/self-driving/" class="dd-item parent">
+    <li data-nav-id="/udacity/self-driving/" class="dd-item">
       <a href="/udacity/self-driving/">
-        <span><i class='fa fa-car'></i> Self Driving</span>
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+        <span><i class='fa fa-car'></i> Self Driving</span><i class="fa fa-angle-right fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/udacity/self-driving/computer-vision-and-deep-learning/" class="dd-item">
@@ -113,7 +111,7 @@
         <span><i class='fa fa-location-arrow'></i> Sensor Fusion, Localization and Control</span>
       </a>
     </li>
-    <li data-nav-id="/udacity/self-driving/path-planning/" class="dd-item parent active">
+    <li data-nav-id="/udacity/self-driving/path-planning/" class="dd-item">
       <a href="/udacity/self-driving/path-planning/">
         <span><i class='fa fa-road'></i> Path Planning</span>
       </a>
@@ -228,14 +226,16 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/dataquest/" class="dd-item">
+    <li data-nav-id="/dataquest/" class="dd-item parent">
       <a href="/dataquest/">
-        <span>DataQuest</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>DataQuest</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
-    <li data-nav-id="/dataquest/data-structure-algorithms/" class="dd-item">
+    <li data-nav-id="/dataquest/data-structure-algorithms/" class="dd-item parent">
       <a href="/dataquest/data-structure-algorithms/">
-        <span>Data Structure and Algorithms</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>Data Structure and Algorithms</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/dataquest/data-structure-algorithms/memory-and-unicode/" class="dd-item">
@@ -330,9 +330,10 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/" class="dd-item">
+    <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/" class="dd-item parent">
       <a href="/dataquest/data-structure-algorithms/algorithms/">
-        <span>Algorithms</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>Algorithms</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
       <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/implementing-an-algorithm/" class="dd-item">
@@ -345,7 +346,7 @@
           <span>The Importance of Modularity and Abstraction</span>
         </a>
     </li>
-      <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/" class="dd-item">
+      <li data-nav-id="/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/" class="dd-item active">
         <a href="/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/">
           <span>Linear Search with Modular Code</span>
         </a>
@@ -492,7 +493,12 @@
 
 
 
- <a href='/'></a> > <a href='/udacity/'>Udacity</a> > <a href='/udacity/self-driving/'>Self Driving</a> > Path Planning
+
+
+
+ <a href='/'></a> > <a href='/dataquest/'>DataQuest</a> > <a href='/dataquest/data-structure-algorithms/'>Data Structure and Algorithms</a> > <a href='/dataquest/data-structure-algorithms/algorithms/'>Algorithms</a> > Linear Search with Modular Code
+
+ 
 
  
 
@@ -517,7 +523,7 @@
 
 <div id="body-inner">
   
-    <h1>Path Planning</h1>
+    <h1>Linear Search with Modular Code</h1>
   
 
 
@@ -525,18 +531,52 @@
     
     
     
+    <p>Now let&rsquo;s try writing a modular search function that can find the age of any player in our data set without having to repeat code.</p>
 
+<ul>
+<li>Write a function called player_age that takes in a name parameter.
 
-
-<ul class="children children-h3">
+<ul>
+<li>The function should return the player&rsquo;s age from the nba data set, which we&rsquo;ve loaded in for you.</li>
+<li>If the function doesn&rsquo;t find the player, it should return -1.</li>
+<li>The third column of nba (index 2) contains the players&rsquo; ages.</li>
+</ul></li>
+<li>Store the age of &ldquo;Ray Allen&rdquo; in the variable allen_age.</li>
+<li>Store the age of &ldquo;Kevin Durant&rdquo; in the variable durant_age.</li>
+<li>Store the age of &ldquo;Shaquille O&rsquo;Neal&rdquo; in the variable shaq_age.</li>
 </ul>
 
-<hr />
+<p>Again let&rsquo;s start with pandas</p>
+
+<pre><code class="language-python">def player_name_pd(name):
+        return nba_2013[&quot;age&quot;][nba_2013[&quot;player&quot;] == name]
+
+player_name_pd(&quot;Kobe Bryant&quot;)
+</code></pre>
+
+<div class="panel panel-success">
+	<div class="panel-heading">Results</div>
+	<div class="panel-body"><p>68    35</p>
+
+<p>Name: age, dtype: int64</p>
+</div>
+	
+</div>
 
 
+<p>Again in Vanilla Python:</p>
 
+<pre><code class="language-python"># player_age returns the age of a player in our NBA data set
+def player_age(name):
+    for row in nba:
+        if row[0] == name:
+            return row[2]
+    return -1
 
-
+allen_age = player_age(&quot;Ray Allen&quot;)
+durant_age = player_age(&quot;Kevin Durant&quot;)
+shaq_age = player_age(&quot;Shaquille O'Neal&quot;)
+</code></pre>
 
 
     
@@ -548,8 +588,8 @@
 </div>
 
 <div id="navigation">
-<a class="nav nav-prev" href="/udacity/self-driving/sensor-fusion-localization-control/" title="Sensor Fusion, Localization and Control"> <i class="fa fa-chevron-left"></i></a>
-    <a class="nav nav-next" href="/udemy/" title="Udemy" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/dataquest/data-structure-algorithms/algorithms/the-importance-of-modularity-and-abstraction/" title="The Importance of Modularity and Abstraction"> <i class="fa fa-chevron-left"></i></a>
+    <a class="nav nav-next" href="/dataquest/data-structure-algorithms/algorithms/what-makes-an-algorithm-smart/" title="What makes an algorithm smart?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
