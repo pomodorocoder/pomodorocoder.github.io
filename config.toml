@@ -5,6 +5,7 @@ DefaultContentLanguage = "en"
 title = "Pomodoro Coder"
 theme = "docdock"
 themesdir = "./themes/"
+googleAnalytics = "UA-109530164-1"
 
 [params]
 showVisitedLinks = false # default is false
