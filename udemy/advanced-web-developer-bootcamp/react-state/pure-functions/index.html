@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.30.2" />
 
-<title>Dataquest :: Pomodoro Coder</title>
+<title>Pure Functions :: Pomodoro Coder</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 
     
   </head>
-  <body data-url="/categories/dataquest/">
+  <body data-url="/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/">
     
       <div id="headermain"></div>
 <nav id="sidebar" class="">
@@ -120,9 +120,10 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/udemy/" class="dd-item">
+    <li data-nav-id="/udemy/" class="dd-item parent">
       <a href="/udemy/">
-        <span>Udemy</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span>Udemy</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
     <li data-nav-id="/udemy/data-science-python/" class="dd-item">
@@ -161,14 +162,16 @@
         <span><i class='fa fa-chrome'></i> Web Developer Bootcamp</span>
       </a>
     </li>
-    <li data-nav-id="/udemy/advanced-web-developer-bootcamp/" class="dd-item">
+    <li data-nav-id="/udemy/advanced-web-developer-bootcamp/" class="dd-item parent">
       <a href="/udemy/advanced-web-developer-bootcamp/">
-        <span><i class='fa fa-facebook-square'></i> Advanced Web Bootcamp</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span><i class='fa fa-facebook-square'></i> Advanced Web Bootcamp</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
-    <li data-nav-id="/udemy/advanced-web-developer-bootcamp/react-state/" class="dd-item">
+    <li data-nav-id="/udemy/advanced-web-developer-bootcamp/react-state/" class="dd-item parent">
       <a href="/udemy/advanced-web-developer-bootcamp/react-state/">
-        <span><i class='fa fa-recycle'></i> React State</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+        <span><i class='fa fa-recycle'></i> React State</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </a>
         <ul>
       <li data-nav-id="/udemy/advanced-web-developer-bootcamp/react-state/state-intro/" class="dd-item">
@@ -176,7 +179,7 @@
           <span>Intro to State</span>
         </a>
     </li>
-      <li data-nav-id="/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/" class="dd-item">
+      <li data-nav-id="/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/" class="dd-item active">
         <a href="/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/">
           <span>Pure Functions</span>
         </a>
@@ -353,7 +356,27 @@
         <span class="links">
         
 
- Dataquest
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='/'></a> > <a href='/udemy/'>Udemy</a> > <a href='/udemy/advanced-web-developer-bootcamp/'>Advanced Web Bootcamp</a> > <a href='/udemy/advanced-web-developer-bootcamp/react-state/'>React State</a> > Pure Functions
+
+ 
+
+ 
+
+ 
+
+ 
 
    
         </span>
@@ -362,7 +385,24 @@
     
     <div class="progress">
         <div class="wrapper">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#objectives">Objectives</a></li>
+<li><a href="#pure-function-definition">Pure Function Definition</a></li>
+<li><a href="#example-a-dot-1-not-a-pure-function">Example A.1: Not a Pure Function</a></li>
+<li><a href="#example-a-dot-2-a-pure-function">Example A.2: A Pure Function</a></li>
+<li><a href="#example-b-dot-1-not-a-pure-function">Example B.1: Not a Pure Function</a></li>
+<li><a href="#example-b-dot-2-pure-function">Example B.2: Pure Function</a></li>
+<li><a href="#example-b-dot-3-use-object-spread-operator-for-the-pure-function">Example B.3: Use Object Spread operator for the Pure Function</a></li>
+<li><a href="#pure-function-with-react">Pure function with React</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
         </div>
     </div>
     
@@ -372,7 +412,7 @@
 
 <div id="body-inner">
   
-    <h1>Dataquest</h1>
+    <h1>Pure Functions</h1>
   
 
 
@@ -380,84 +420,93 @@
     
     
     
+    
 
+<h3 id="objectives">Objectives</h3>
 
+<ul>
+<li>Define Pure Functions</li>
+</ul>
 
-<div class="extra-pagination inner">
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
+<h3 id="pure-function-definition">Pure Function Definition</h3>
 
-</div>
+<ul>
+<li>A function with no side effects</li>
+<li>It does not modify its inputs</li>
+<li>It&rsquo;s repeatable</li>
+<li>To generate the outputs, we don&rsquo;t need to change the inputs</li>
+</ul>
 
+<h3 id="example-a-dot-1-not-a-pure-function">Example A.1: Not a Pure Function</h3>
 
-   <article class="post dataquest">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/dataquest/data-structure-algorithms/binary-addition/">Binary Addition</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>We can add binary numbers together, just like we can with base 10 numbers
-In the example below:
- a is in base 10 &ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits &ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero. <a class="read-more" href="/dataquest/data-structure-algorithms/binary-addition/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
+<ul>
+<li>The code below is not a pure function as it changes the values in the input array</li>
+<li>It is not repeatable: if we run the function multiple times it won&rsquo;t generate the same results</li>
+</ul>
 
-        
-        
+<pre><code class="language-js">function doubleVals(arr) {
+    for(var i = 0; i &lt; arr.length; i++) {
+        arr[i] = arr[i] * 2;    // Note here, the value of input array is changed
+    }
+    return arr;
+}
+</code></pre>
 
-    </footer>
-</article>
+<h3 id="example-a-dot-2-a-pure-function">Example A.2: A Pure Function</h3>
 
-   <article class="post dataquest">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/dataquest/data-structure-algorithms/memory-unicode-intro/">Intro</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>In this mission, we&rsquo;ll learn how computers store values in memory. We will look at the CIA memos data. Here&rsquo;s a preview of the data
-year,statement,,, 1997,&quot;The FBI information included that al-Mairi's brother &quot;&quot;traveled to Afghanistan in 1997-1998 to train in Bin - Ladencamps.&quot;&quot;&quot;,,, 1997,&quot;The FBI information included that al-Mairi's brother &quot;&quot;traveled to Afghanistan in 1997-1998 to train in Bin - Ladencamps.&quot;&quot;&quot;,,,  The file consists of one long string. To use it effectively, we&rsquo;d need to parse it and convert it into rows and columns. <a class="read-more" href="/dataquest/data-structure-algorithms/memory-unicode-intro/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
+<ul>
+<li>Can use the <code>map</code> method which returns an array</li>
+<li>The input value is not changed</li>
+<li>The process is repeatable: with same input array, will always generate the same output array</li>
+</ul>
 
-        
-        
+<pre><code class="language-js">function doubleVals(arr){
+    return arr.map(d =&gt; d * 2);
+}
+</code></pre>
 
-    </footer>
-</article>
+<h3 id="example-b-dot-1-not-a-pure-function">Example B.1: Not a Pure Function</h3>
 
-   <article class="post dataquest">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/dataquest/data-structure-algorithms/basics-of-binary/">The Basics of Binary</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Computers can&rsquo;t store values like strings or integers directly. Instead, they store information in binary, where the only valid numbers are 0 and 1. This system makes storing data on devices like hard drives possible.
- Base 10: we normally count in &ldquo;base 10.&rdquo; We call this system base 10 because there are 10 possible digits - 0 through 9 Base 2: Binary is base two, because there are only two possible digits - 0 and 1  Let&rsquo;s explore how binary numbers work. <a class="read-more" href="/dataquest/data-structure-algorithms/basics-of-binary/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
+<ul>
+<li>In the case below, we are modifying global state</li>
+<li>Will add a property called job to the person object</li>
+</ul>
 
-        
-        
+<pre><code class="language-js">var person = {id: 53, name: &quot;Iza&quot;};
 
-    </footer>
-</article>
+function addJob(job){
+    person.job = job;
+}
+addJob(&quot;Data Scientist&quot;);
+</code></pre>
 
+<h3 id="example-b-dot-2-pure-function">Example B.2: Pure Function</h3>
 
-<div style="margin-bottom:2rem"></div>
+<pre><code class="language-js">var person = {id: 88, name: &quot;Iza&quot;};
 
-<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
+function addJob(personObj, job){
+    return Object.assign(
+        {}, personObj, {job}
+    );
+}
+addJob(person, &quot;Data Scientist&quot;);
+</code></pre>
 
+<h3 id="example-b-dot-3-use-object-spread-operator-for-the-pure-function">Example B.3: Use Object Spread operator for the Pure Function</h3>
 
+<pre><code class="language-js">var person = {id: 88, name: &quot;Iza&quot;}
+
+function addJob(personObj, job){
+    return(...personObj, job); //Spread operator puts all the keys and values from personObj and put them into the new object we are creating
+}
+addJob(person, &quot;Data Scientist&quot;)
+</code></pre>
+
+<h3 id="pure-function-with-react">Pure function with React</h3>
+
+<ul>
+<li>All changes to this.state should be pure</li>
+</ul>
 
 
     
@@ -469,7 +518,8 @@ year,statement,,, 1997,&quot;The FBI information included that al-Mairi's brothe
 </div>
 
 <div id="navigation">
-<a class="nav nav-next" href="/udacity/" title="Udacity" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/udemy/advanced-web-developer-bootcamp/react-state/state-intro/" title="Intro to State"> <i class="fa fa-chevron-left"></i></a>
+    <a class="nav nav-next" href="/udemy/advanced-web-developer-bootcamp/react-state/react-component-architecture/" title="React Component Architecture" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

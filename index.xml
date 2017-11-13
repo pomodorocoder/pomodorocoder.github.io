@@ -52,6 +52,53 @@ In the example below:
     </item>
     
     <item>
+      <title>Intro to State</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/state-intro/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/state-intro/</guid>
+      <description>Objectives  Define State in React Create a component with a constructor and state Describe what happens when setState is called  State Definition  Stateful Data: Data in our applications that can be changed Unlike props that cannot be changed  State Example An example:
+class App extends Component { constructor(props) { super(props); this.state = {favColor: &amp;quot;red&amp;quot;}; } render() { return ( &amp;lt;div&amp;gt; My favorite color: {this.state.favColor} &amp;lt;/div&amp;gt; ) } }  setState  How to change the state here?</description>
+    </item>
+    
+    <item>
+      <title>Virtual DOM</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/virtual-dom/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/virtual-dom/</guid>
+      <description>Objectives  Describe the virtual DOM Define a synthetic events Describe changes in React 16  Definition  Virtual DOM is a data structure stored by React that tracks changes from one render state to the next. If something has changed from one render to the next, the browser&amp;rsquo;s DOM is updated (Reconciliation)  Synthetic Events  Supports all the native brower events, but provides a consistent API on all browsers  React 16, What&amp;rsquo;s New?</description>
+    </item>
+    
+    <item>
+      <title>Pure Functions</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/</guid>
+      <description>Objectives  Define Pure Functions  Pure Function Definition  A function with no side effects It does not modify its inputs It&amp;rsquo;s repeatable To generate the outputs, we don&amp;rsquo;t need to change the inputs  Example A.1: Not a Pure Function  The code below is not a pure function as it changes the values in the input array It is not repeatable: if we run the function multiple times it won&amp;rsquo;t generate the same results  function doubleVals(arr) { for(var i = 0; i &amp;lt; arr.</description>
+    </item>
+    
+    <item>
+      <title>React Component Architecture</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/react-component-architecture/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/react-component-architecture/</guid>
+      <description>Where to put state and how props and state interact with each other.
+Objectives  Pass State to Child Components as props Define which components own state Use stateless functional components  How is State Shared?  State is always passed from a parent down to a child component as a prop State should not be passed to a sibling or a parent  Key Takeaway  State should be owned by 1 component  Bad Practice Never assign a prop to a state</description>
+    </item>
+    
+    <item>
+      <title>setState Gotcha!</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/setstate-gocha/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/setstate-gocha/</guid>
+      <description>Objectives  Use a function as the first parameter to setState Add a callback to setState to determine when the state is up to date  setState that depends on previous state this.state = {counter: 1}; // New value of the counter depends on the old value this.setState({ counter: this.state.counter + 1 }) // If we do this again and for multiple times this.setState({ counter: this.state.counter + 1 })  We expect the result to be 3, however it&amp;rsquo;s actually 2.</description>
+    </item>
+    
+    <item>
       <title>D3 Embedded with Jupyter Notebook</title>
       <link>https://pomodorocoder.github.io/frontendmaster/d3/d3-visualization-embedded-in-jupyter-notebook/</link>
       <pubDate>Fri, 03 Nov 2017 00:00:00 +0000</pubDate>
