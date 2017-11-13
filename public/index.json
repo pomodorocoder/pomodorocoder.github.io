@@ -102,7 +102,7 @@
 	"title": "Advanced Web Bootcamp",
 	"tags": [],
 	"description": "",
-	"content": "  "
+	"content": "  React State Virtual DOM, Events and Forms  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/datacamp/python-data-science-toolbox/",
@@ -245,11 +245,60 @@
 	"content": "We can add binary numbers together, just like we can with base 10 numbers\nIn the example below:\n a is in base 10 \u0026ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits \u0026ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero.  a = 9 a += 1 a  Results 10  When we add 1 to 19, we increment the leading 1 by 1, and then set the last digit to 0, giving us 20.\na = 19 a += 1 a  Results 20  When we add 1 to 99, we increment the last digit by 1, and add 1 to the first digit, but the first digit is now greater than 9, so we have to increment the invisible leading digit.\na = 99 a += 1 a  Results 100  Binary addition works the exact same way, except the highest value any single digit can represent is 1\n We\u0026rsquo;ll add binary values by defining a binary_add function that was made just for this exercise It\u0026rsquo;s not extremely important to know how it works at the moment  b = \u0026quot;1\u0026quot; def binary_add(a, b): return bin(int(a, 2) + int(b, 2))[2:] c = binary_add(b, \u0026quot;1\u0026quot;) c  Results 10  c now equals \u0026ldquo;11\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 11  c now equals \u0026ldquo;100\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 100  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/state-intro/",
+	"title": "Intro to State",
+	"tags": [],
+	"description": "",
+	"content": " Objectives  Define State in React Create a component with a constructor and state Describe what happens when setState is called  State Definition  Stateful Data: Data in our applications that can be changed Unlike props that cannot be changed  State Example An example:\nclass App extends Component { constructor(props) { super(props); this.state = {favColor: \u0026quot;red\u0026quot;}; } render() { return ( \u0026lt;div\u0026gt; My favorite color: {this.state.favColor} \u0026lt;/div\u0026gt; ) } }  setState  How to change the state here? The correct way to change state in the app is using setState setState accepts an object with new properties and values for this.state Create a new object and change the state for newly created object Should never never modify state directly in the original object  this.setState({});  Example of changing state\nclass App extends Component { constructor(props) { super(props); this.state = {favColor: \u0026quot;red\u0026quot;}; setTimeout(() =\u0026gt; { this.setState({favColor: \u0026quot;blue\u0026quot;}) }, 3000); } render(){ return( \u0026lt;div\u0026gt; The current Color is: {this.state.favColor} \u0026lt;/div\u0026gt; ); } }  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/virtual-dom/",
+	"title": "Virtual DOM",
+	"tags": [],
+	"description": "",
+	"content": " Objectives  Describe the virtual DOM Define a synthetic events Describe changes in React 16  Definition  Virtual DOM is a data structure stored by React that tracks changes from one render state to the next. If something has changed from one render to the next, the browser\u0026rsquo;s DOM is updated (Reconciliation)  Synthetic Events  Supports all the native brower events, but provides a consistent API on all browsers  React 16, What\u0026rsquo;s New?  Render can return an array of JSX elements or a string  render(){ return[ \u0026lt;div key=\u0026quot;a\u0026quot;\u0026gt; First Element\u0026lt;/div\u0026gt;, \u0026lt;div key=\u0026quot;b\u0026quot;\u0026gt; Second Element\u0026lt;/div\u0026gt; ] }   Fiber is a reconciliation engine  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/",
+	"title": "Pure Functions",
+	"tags": [],
+	"description": "",
+	"content": " Objectives  Define Pure Functions  Pure Function Definition  A function with no side effects It does not modify its inputs It\u0026rsquo;s repeatable To generate the outputs, we don\u0026rsquo;t need to change the inputs  Example A.1: Not a Pure Function  The code below is not a pure function as it changes the values in the input array It is not repeatable: if we run the function multiple times it won\u0026rsquo;t generate the same results  function doubleVals(arr) { for(var i = 0; i \u0026lt; arr.length; i++) { arr[i] = arr[i] * 2; // Note here, the value of input array is changed } return arr; }  Example A.2: A Pure Function  Can use the map method which returns an array The input value is not changed The process is repeatable: with same input array, will always generate the same output array  function doubleVals(arr){ return arr.map(d =\u0026gt; d * 2); }  Example B.1: Not a Pure Function  In the case below, we are modifying global state Will add a property called job to the person object  var person = {id: 53, name: \u0026quot;Iza\u0026quot;}; function addJob(job){ person.job = job; } addJob(\u0026quot;Data Scientist\u0026quot;);  Example B.2: Pure Function var person = {id: 88, name: \u0026quot;Iza\u0026quot;}; function addJob(personObj, job){ return Object.assign( {}, personObj, {job} ); } addJob(person, \u0026quot;Data Scientist\u0026quot;);  Example B.3: Use Object Spread operator for the Pure Function var person = {id: 88, name: \u0026quot;Iza\u0026quot;} function addJob(personObj, job){ return(...personObj, job); //Spread operator puts all the keys and values from personObj and put them into the new object we are creating } addJob(person, \u0026quot;Data Scientist\u0026quot;)  Pure function with React  All changes to this.state should be pure  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/react-component-architecture/",
+	"title": "React Component Architecture",
+	"tags": [],
+	"description": "",
+	"content": " Where to put state and how props and state interact with each other.\nObjectives  Pass State to Child Components as props Define which components own state Use stateless functional components  How is State Shared?  State is always passed from a parent down to a child component as a prop State should not be passed to a sibling or a parent  Key Takeaway  State should be owned by 1 component  Bad Practice Never assign a prop to a state\nclass InstructorItem extends Component { constructor(props) { super(props); this.state = { name: this.props.name, // Should never assign props to the state here hobbies: this.props.hobbies // this could be a duplicate, bad practice }; } render() { return ( \u0026lt;div\u0026gt; \u0026lt;h3\u0026gt;{this.state.name}\u0026lt;/h3\u0026gt; \u0026lt;h4\u0026gt;Hobbies: {this.state.hobbies.join(\u0026quot;, \u0026quot;)}\u0026lt;/h4\u0026gt; \u0026lt;/div\u0026gt; ) } }  Stateless Functional Components  Components implemented using a function not a class The function implements the render method only: no constructor, no state  Here\u0026rsquo;s a stateless functional component example:\nimport React from 'react'; const Greeting = props =\u0026gt; ( \u0026lt;h1\u0026gt; Hello, {props.name} \u0026lt;/h1\u0026gt; ); export default Greeting;  Thinking in React Thinkning in React is not that intuitive at the beginning. This post provides some instructions about how to think about solving problems in React.\n"
+},
+{
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/setstate-gocha/",
+	"title": "setState Gotcha!",
+	"tags": [],
+	"description": "",
+	"content": " Objectives  Use a function as the first parameter to setState Add a callback to setState to determine when the state is up to date  setState that depends on previous state this.state = {counter: 1}; // New value of the counter depends on the old value this.setState({ counter: this.state.counter + 1 }) // If we do this again and for multiple times this.setState({ counter: this.state.counter + 1 })  We expect the result to be 3, however it\u0026rsquo;s actually 2. The reason is setState is Asychronous. It\u0026rsquo;s eventually doing this:\nthis.setState({ counter: this.state.counter + 1 }); Object.assign( {}, {counter: this.state.counter + 1}, // this.state.counter will always be 1 {counter: this.state.counter + 1}, {counter: this.state.counter + 1} );  The solution is to update function\nthis.setState((prevState, props) =\u0026gt; { return { counter: prevState.counter + 1 }; });  The rule is whenever a setState depends on previous state, use a function parameter.\nsetState is Asynchronous Sometimes, I use console.log for debugging, however the method below won\u0026rsquo;t work because setState is asynchronous\nthis.setState({name: \u0026quot;Tim\u0026quot;}); console.log(this.state.name); // Won't be updated yet  The correct way should use a callback function\nthis.setState({name: \u0026quot;Tim\u0026quot;}, () =\u0026gt; { console.log( \u0026quot;Now state is up to date\u0026quot;, this.state.name ); });  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/udemy/data-science-python/machine-learning/logistic-regression/",
 	"title": "Logistic Regression",
 	"tags": [],
 	"description": "",
 	"content": "  Logistic Regression Theory  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/",
+	"title": "React State",
+	"tags": [],
+	"description": "",
+	"content": "  Intro to State Pure Functions React Component Architecture setState Gotcha!  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/",
+	"title": "Virtual DOM, Events and Forms",
+	"tags": [],
+	"description": "",
+	"content": "  Virtual DOM  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/frontendmaster/d3/d3-visualization-embedded-in-jupyter-notebook/",
@@ -289,6 +338,13 @@
 {
 	"uri": "https://pomodorocoder.github.io/tags/",
 	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pomodorocoder.github.io/categories/udemy/",
+	"title": "Udemy",
 	"tags": [],
 	"description": "",
 	"content": ""
