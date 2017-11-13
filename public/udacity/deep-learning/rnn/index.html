@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pomodoro Coder</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="generator" content="Hugo 0.30.2" />
+
+<title>Recurrent Neural Networks :: Pomodoro Coder</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/hybrid.css" rel="stylesheet">
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<link href="/css/auto-complete.css" rel="stylesheet">
+<link href="/theme-original/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<style type="text/css">
+  :root #header + #content > #left > #rlblock_left {
+    display:none !important;
+  }
+</style>
+<meta name="description" content="">
+
+
+    
+  </head>
+  <body data-url="/udacity/deep-learning/rnn/">
+    
+      <div id="headermain"></div>
+<nav id="sidebar" class="">
+
+
+
+<div class="highlightable">
+  <div id="header-wrapper">
+    <div id="header">
+      
+	
+  
+    
+  
+
+    </div>
+        <div class="searchbox">
+		    <label for="search-by"><i class="fa fa-search"></i></label>
+		    <input data-search-input id="search-by" type="text" placeholder="Search...">
+		    <span data-search-clear=""><i class="fa fa-close"></i></span>
+		</div>
+		<script type="text/javascript" src="/js/lunr.min.js"></script>
+		<script type="text/javascript" src="/js/auto-complete.js"></script>
+		<script type="text/javascript">
+        
+            var baseurl = "https:\/\/pomodorocoder.github.io\/";
+        
+		</script>
+		<script type="text/javascript" src="/js/search.js"></script>
+  </div>
+
+      <ul class="topics">
+            <li data-nav-id="/" class="dd-item">
+            <a href="/"><i class="fa fa-fw fa-home"></i></a>
+            </li>
+    <li data-nav-id="/udacity/" class="dd-item parent">
+      <a href="/udacity/">
+        <span>Udacity</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/udacity/deep-learning/" class="dd-item parent">
+      <a href="/udacity/deep-learning/">
+        <span><i class='fa fa-cubes'></i> Deep Learning</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/udacity/deep-learning/neural-networks/" class="dd-item">
+      <a href="/udacity/deep-learning/neural-networks/">
+        <span><i class='fa fa-sitemap'></i> Neural Networks</span>
+      </a>
+    </li>
+    <li data-nav-id="/udacity/deep-learning/cnn/" class="dd-item">
+      <a href="/udacity/deep-learning/cnn/">
+        <span><i class='fa fa-picture-o'></i> Convolutional Neural Networks</span>
+      </a>
+    </li>
+    <li data-nav-id="/udacity/deep-learning/rnn/" class="dd-item parent active">
+      <a href="/udacity/deep-learning/rnn/">
+        <span><i class='fa fa-globe'></i> Recurrent Neural Networks</span>
+      </a>
+    </li>
+    <li data-nav-id="/udacity/deep-learning/gan/" class="dd-item">
+      <a href="/udacity/deep-learning/gan/">
+        <span><i class='fa fa-smile-o'></i> Generative Adversarial Networks</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/udacity/self-driving/" class="dd-item">
+      <a href="/udacity/self-driving/">
+        <span><i class='fa fa-car'></i> Self Driving</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/udacity/self-driving/computer-vision-and-deep-learning/" class="dd-item">
+      <a href="/udacity/self-driving/computer-vision-and-deep-learning/">
+        <span><i class='fa fa-eye'></i> Computer Vision and Deep Learning</span>
+      </a>
+    </li>
+    <li data-nav-id="/udacity/self-driving/sensor-fusion-localization-control/" class="dd-item">
+      <a href="/udacity/self-driving/sensor-fusion-localization-control/">
+        <span><i class='fa fa-location-arrow'></i> Sensor Fusion, Localization and Control</span>
+      </a>
+    </li>
+    <li data-nav-id="/udacity/self-driving/path-planning/" class="dd-item">
+      <a href="/udacity/self-driving/path-planning/">
+        <span><i class='fa fa-road'></i> Path Planning</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/udemy/" class="dd-item">
+      <a href="/udemy/">
+        <span>Udemy</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/udemy/data-science-python/" class="dd-item">
+      <a href="/udemy/data-science-python/">
+        <span>Data Science for Python</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/udemy/data-science-python/machine-learning/" class="dd-item">
+      <a href="/udemy/data-science-python/machine-learning/">
+        <span>Machine Learning</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/udemy/data-science-python/machine-learning/logistic-regression/" class="dd-item">
+      <a href="/udemy/data-science-python/machine-learning/logistic-regression/">
+        <span>Logistic Regression</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/udemy/data-science-python/machine-learning/logistic-regression/logistic-regression-theory/" class="dd-item">
+        <a href="/udemy/data-science-python/machine-learning/logistic-regression/logistic-regression-theory/">
+          <span>Logistic Regression Theory</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/udemy/data-science-r/" class="dd-item">
+      <a href="/udemy/data-science-r/">
+        <span>Data Science for R</span>
+      </a>
+    </li>
+    <li data-nav-id="/udemy/web-developer-bootcamp/" class="dd-item">
+      <a href="/udemy/web-developer-bootcamp/">
+        <span><i class='fa fa-chrome'></i> Web Developer Bootcamp</span>
+      </a>
+    </li>
+    <li data-nav-id="/udemy/advanced-web-developer-bootcamp/" class="dd-item">
+      <a href="/udemy/advanced-web-developer-bootcamp/">
+        <span><i class='fa fa-facebook-square'></i> Advanced Web Bootcamp</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/datacamp/" class="dd-item">
+      <a href="/datacamp/">
+        <span>DataCamp</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/datacamp/python-data-science-toolbox/" class="dd-item">
+      <a href="/datacamp/python-data-science-toolbox/">
+        <span>Python Data Science Toolbox</span>
+      </a>
+    </li>
+    <li data-nav-id="/datacamp/python-import-data/" class="dd-item">
+      <a href="/datacamp/python-import-data/">
+        <span>Import Data in Python</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/dataquest/" class="dd-item">
+      <a href="/dataquest/">
+        <span>DataQuest</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/dataquest/data-structure-algorithms/" class="dd-item">
+      <a href="/dataquest/data-structure-algorithms/">
+        <span>Data Structure and Algorithms</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/dataquest/data-structure-algorithms/memory-unicode-intro/" class="dd-item">
+        <a href="/dataquest/data-structure-algorithms/memory-unicode-intro/">
+          <span>Intro</span>
+        </a>
+    </li>
+      <li data-nav-id="/dataquest/data-structure-algorithms/basics-of-binary/" class="dd-item">
+        <a href="/dataquest/data-structure-algorithms/basics-of-binary/">
+          <span>The Basics of Binary</span>
+        </a>
+    </li>
+      <li data-nav-id="/dataquest/data-structure-algorithms/binary-addition/" class="dd-item">
+        <a href="/dataquest/data-structure-algorithms/binary-addition/">
+          <span>Binary Addition</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/pluralsight/" class="dd-item">
+      <a href="/pluralsight/">
+        <span>Pluralsight</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/pluralsight/c-plus/" class="dd-item">
+      <a href="/pluralsight/c-plus/">
+        <span>C&#43;&#43;</span>
+      </a>
+    </li>
+    <li data-nav-id="/pluralsight/python/" class="dd-item">
+      <a href="/pluralsight/python/">
+        <span>Python</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/frontendmaster/" class="dd-item">
+      <a href="/frontendmaster/">
+        <span>Front End Master</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/frontendmaster/d3/" class="dd-item">
+      <a href="/frontendmaster/d3/">
+        <span><i class='fa fa-line-chart'></i> Data Visualization with d3</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/frontendmaster/d3/d3-visualization-embedded-in-jupyter-notebook/" class="dd-item">
+        <a href="/frontendmaster/d3/d3-visualization-embedded-in-jupyter-notebook/">
+          <span>D3 Embedded with Jupyter Notebook</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/frontendmaster/deep-js-foundations/" class="dd-item">
+      <a href="/frontendmaster/deep-js-foundations/">
+        <span><i class='fa fa-jsfiddle'></i> Deep JavaScript Foundation</span>
+      </a>
+    </li>
+    <li data-nav-id="/frontendmaster/algorithms-js/" class="dd-item">
+      <a href="/frontendmaster/algorithms-js/">
+        <span><i class='fa fa-sort-numeric-asc'></i> Data Structure &amp; Algorithms in JS</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/youtube/" class="dd-item">
+      <a href="/youtube/">
+        <span>Youtube</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/youtube/brandon-rhodes-pandas/" class="dd-item">
+      <a href="/youtube/brandon-rhodes-pandas/">
+        <span>Brandon Rhodes Pandas Tutorial</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/lynda/" class="dd-item">
+      <a href="/lynda/">
+        <span>Lynda</span>
+      </a>
+    </li>
+
+
+
+        <section id="shortcuts">
+                <li class="" role=""><h3>More</h3><a href="https://github.com/pomodorocoder/pomodorocoder.github.io" target="_blank" rel="noopener"><i class='fa fa-github'></i> Github Repo</a></li>
+                <li class="" role=""><a href="http://www.isaaczhou.com/" target="_blank" rel="noopener"><i class='fa fa-address-card'></i> About Me</a></li>
+        </section>
+
+    <hr />
+    <li></li>
+    
+    </ul>
+
+ <section id="footer">
+    </section>
+  </div>
+</nav>
+
+
+
+<section id="body">
+<div id="overlay"></div>
+<div class="padding highlightable">
+
+  <div id="top-bar">
+    <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <span id="sidebar-toggle-span">
+          <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+            <i class="fa fa-bars"></i>
+          </a>
+        </span>
+        <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+        <span class="links">
+        
+
+
+
+
+
+
+
+
+
+
+ <a href='/'></a> > <a href='/udacity/'>Udacity</a> > <a href='/udacity/deep-learning/'>Deep Learning</a> > Recurrent Neural Networks
+
+ 
+
+ 
+
+ 
+
+   
+        </span>
+    </div>
+    
+    
+    <div class="progress">
+        <div class="wrapper">
+    
+        </div>
+    </div>
+    
+
+  </div>
+
+
+<div id="body-inner">
+  
+    <h1>Recurrent Neural Networks</h1>
+  
+
+
+
+    
+    
+    
+
+
+
+<ul class="children children-h3">
+</ul>
+
+<hr />
+
+
+
+
+
+
+
+    
+    
+          <footer class=" footline" >
+	
+</footer>
+  </div>
+</div>
+
+<div id="navigation">
+<a class="nav nav-prev" href="/udacity/deep-learning/cnn/" title="Convolutional Neural Networks"> <i class="fa fa-chevron-left"></i></a>
+    <a class="nav nav-next" href="/udacity/deep-learning/gan/" title="Generative Adversarial Networks" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a></div>
+
+</section>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+  <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+</div>    
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/featherlight.min.js"></script>
+<script src="/js/html5shiv-printshiv.min.js"></script>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/modernizr.custom.71422.js"></script>
+<script src="/js/docdock.js"></script>
+<script src="/theme-original/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

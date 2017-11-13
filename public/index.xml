@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pomodoro Coder</title>
+    <link>https://pomodorocoder.github.io/</link>
+    <description>Recent content on Pomodoro Coder</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Nov 2017 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://pomodorocoder.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intro</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-unicode-intro/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-unicode-intro/</guid>
+      <description>In this mission, we&amp;rsquo;ll learn how computers store values in memory. We will look at the CIA memos data. Here&amp;rsquo;s a preview of the data
+year,statement,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;s brother &amp;quot;&amp;quot;traveled to Afghanistan in 1997-1998 to train in Bin - Ladencamps.&amp;quot;&amp;quot;&amp;quot;,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;s brother &amp;quot;&amp;quot;traveled to Afghanistan in 1997-1998 to train in Bin - Ladencamps.&amp;quot;&amp;quot;&amp;quot;,,,  The file consists of one long string. To use it effectively, we&amp;rsquo;d need to parse it and convert it into rows and columns.</description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression Theory</title>
+      <link>https://pomodorocoder.github.io/udemy/data-science-python/machine-learning/logistic-regression/logistic-regression-theory/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/data-science-python/machine-learning/logistic-regression/logistic-regression-theory/</guid>
+      <description> Logistic Regression as a method for classification Some examples of classification problems  Spam vs. Ham emails Loan Default Disease Diagnosis  Normal linear regression model won&amp;rsquo;t fit well on binary groups   </description>
+    </item>
+    
+    <item>
+      <title>The Basics of Binary</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/basics-of-binary/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/basics-of-binary/</guid>
+      <description>Computers can&amp;rsquo;t store values like strings or integers directly. Instead, they store information in binary, where the only valid numbers are 0 and 1. This system makes storing data on devices like hard drives possible.
+ Base 10: we normally count in &amp;ldquo;base 10.&amp;rdquo; We call this system base 10 because there are 10 possible digits - 0 through 9 Base 2: Binary is base two, because there are only two possible digits - 0 and 1  Let&amp;rsquo;s explore how binary numbers work.</description>
+    </item>
+    
+    <item>
+      <title>Binary Addition</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/binary-addition/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/binary-addition/</guid>
+      <description>We can add binary numbers together, just like we can with base 10 numbers
+In the example below:
+ a is in base 10 &amp;ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits &amp;ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero.</description>
+    </item>
+    
+    <item>
+      <title>D3 Embedded with Jupyter Notebook</title>
+      <link>https://pomodorocoder.github.io/frontendmaster/d3/d3-visualization-embedded-in-jupyter-notebook/</link>
+      <pubDate>Fri, 03 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/frontendmaster/d3/d3-visualization-embedded-in-jupyter-notebook/</guid>
+      <description>D3 Visualization Embedded in Jupyter Notebook  /*! * * Twitter Bootstrap * */ /*! * Bootstrap v3.3.7 (http://getbootstrap.com) * Copyright 2011-2016 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE) */ /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */ html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; } body { margin: 0; } article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; } audio, canvas, progress, video { display: inline-block; vertical-align: baseline; } audio:not([controls]) { display: none; height: 0; } [hidden], template { display: none; } a { background-color: transparent; } a:active, a:hover { outline: 0; } abbr[title] { border-bottom: 1px dotted; } b, strong { font-weight: bold; } dfn { font-style: italic; } h1 { font-size: 2em; margin: 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://pomodorocoder.github.io/_header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/_header/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
