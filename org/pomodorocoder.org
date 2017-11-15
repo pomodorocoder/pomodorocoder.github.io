@@ -39,6 +39,193 @@
 ** Data Science for R
 ** Advanced Web Bootcamp
 *** React
+**** Create React App and Props
+***** Create React App
+:PROPERTIES:
+:EXPORT_FILE_NAME: create-react-app
+:EXPORT_DATE: <2017-11-14 Tue>
+:END:
+****** Objectives
+       - Webpack
+       - Install create React App
+       - Make an application using Create React App
+****** Webpack
+       - A module bundler for modern JS applications
+       - Combine different JS files into a bundle.js
+       - Has a plugin system to run tools like babel
+       - Also bundles other assets like css, images etc
+****** Create React App Uses Webpack
+       - npm install -g create-react-app
+       - create-react-app ~Name Of the Project~
+       - cd ~Name Of the Project~
+       - npm start
+***** JS import Statements
+****** Objectives
+       - Import a component from another file
+       - Export a component from a file
+       - Use export default vs. non default export
+****** Structure
+******* imports
+In ~App.js~ file, always include this at the top of the file
+
+#+begin_src js
+import React, {Component} from 'react';
+#+end_src
+******* export
+At the bottom of the file, always include export statement (default export here)
+#+begin_src js
+export default App;
+#+end_src
+With default export, we can import directly in the ~index.js~ file
+
+#+begin_src js
+import App from "./App"         // Provided index.js and App.js are in the same folder
+#+end_src
+
+
+If we use non-default export in the ~App.js~ file
+
+#+begin_src js
+export App;
+#+end_src
+
+Then in the ~index.js~ file, we need to use the curly brackets
+#+begin_src js
+import {App} from "./App"
+#+end_src
+****** Semiotics
+#+begin_src js
+import React, {Component} from "react";
+import { ORFrame } from 'semiotic';
+import { AnnotationCalloutElbow } from 'react-annotation'
+
+
+class WaterFall extends Component {
+    render(){
+        
+ const padding = 40
+    const data = [
+        { name: "Product Revenue", value: 42000 },
+        { name: "Services Revenue", value: 21000 },
+        { name: "Fixed Costs", value: -17000 },
+        { name: "Variable Costs", value: -14000 },
+        { name: "Other Costs", value: -10000 },
+        { name: "Ransoms", value: 10000 },
+        { name: "Cat Rental", value: 10000 },
+        { name: "Total" }
+       ]
+
+    const fillRule = d => d.name === 'Total' ? '#00a2ce' : d.value > 0 ? '#4d430c' : '#b3331d'
+    const formatLabel = (name, value) => `$${(name === 'Total' ? Math.abs(value) : value) / 1000}k`
+
+function waterfall({ data, rScale, adjustedSize, margin }) {
+    const renderedPieces = []
+    let currentY = 0
+    let currentValue = 0
+    const zeroValue = rScale(0)
+
+    const keys = Object.keys(data)
+
+    keys.forEach(key => {
+        //assume only one per column though...
+        const thisPiece = data[key].pieceData[0]
+
+        let value = thisPiece.value
+        const name = thisPiece.name
+        if (name === "Total") {
+            value = -currentValue
+        }
+        else {
+            currentValue += value
+        }
+        const thisColumn = data[name]
+        const { x, width } = thisColumn
+        const height = rScale(value) - zeroValue
+        let y = adjustedSize[1] - margin.top - height
+        if (height < 0) {
+            y = adjustedSize[1] - margin.top
+        }
+        y += margin.top + currentY
+
+        const markObject = {
+            o: key,
+            piece: thisPiece,
+            renderElement: {
+                markType: "g",
+                children: []
+            },
+            xy: {
+                x: x + width / 2,
+                y: y
+            }
+        }
+
+        renderedPieces.push(markObject)
+
+        markObject.renderElement.children.push(<rect
+            height={Math.abs(height)}
+            x={x}
+            y={y}
+            width={width}
+            style={{ fill: fillRule(thisPiece) }}
+        />)
+        const lineY = name === "Total" || value > 0 ? y : y + Math.abs(height)
+
+        if (name !== "Total") {
+            markObject.renderElement.children.push(<line
+                x1={x + width}
+                x2={x + width + padding}
+                y1={lineY}
+                y2={lineY}
+                style={{ stroke: "gray", strokeDasharray: "5 5" }}
+            />)
+        }
+        const textOffset = name === "Total" || value > 0 ? 15 : -5
+        markObject.renderElement.children.push(<text
+            x={x + width / 2}
+            y={lineY + textOffset}
+            style={{ fontSize: "10px", textAnchor: "middle", fill: "white" }}
+        >{formatLabel(name, value)}</text>)
+
+        currentY -= height
+    })
+
+    return renderedPieces
+}
+        
+        return(
+            
+       <ORFrame
+            size={[ 700,400 ]}
+            data={data}
+            rExtent={[ 0,65000 ]}
+            rAccessor={d => d.value}
+            oAccessor={d => d.name}
+            axis={{ tickFormat: d => `$${d/1000}k` }}
+            style={d => ({ fill: d.value > 0 ? "green" : "red", stroke: "darkgray", strokeWidth: 1 })}
+            type={waterfall}
+            oLabel={d => <text transform="rotate(45)">{d}</text>}
+            margin={{ left: 60, top: 20, bottom: 100, right: 20 }}
+            oPadding={padding}
+        />
+        )
+    }
+}
+
+export default WaterFall
+#+end_src
+
+index.js
+#+begin_src js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import TimeSeries from './timeseries';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
+#+end_src
 **** State
 ***** Intro to State
 :PROPERTIES:
@@ -308,7 +495,6 @@ this.setState({name: "Tim"}, () => {
     );
 });
 #+end_src
-
 **** Virtual DOM, Events and Forms
 ***** Virtual DOM
 :PROPERTIES:
@@ -339,8 +525,343 @@ render(){
 #+end_src
        - [[https://www.youtube.com/watch?v=ZCuYPiUIONs][Fiber]] is a reconciliation engine
 
+***** Events
+:PROPERTIES:
+:EXPORT_FILE_NAME: react-events
+:EXPORT_DATE: <2017-11-15 Wed>
+:END:
+****** Objectives
+       - Demostrate an onClick event
+       - Using bind functions vs inline callbacks
+
+****** onClick Event
+#+begin_src js
+class ClickExample extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {name: "Isaac"};
+    }
+
+    render(){
+        return(
+                <div>
+                <p>{this.state.name}</p>
+                <button type="button" onClick={() => this.setState({name: "ISAAC"})}> UPPERCASE </button>                
+                </div>
+        );
+    }
+}
+#+end_src
+
+****** Using predefined function
+#+begin_src js
+class Example extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {name: "isaac"};
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e){
+        this.setState((prevState, props) => ({
+            name: prevState.name.toUpperCase()
+        }));
+    }
+
+    render(){
+        return(
+                <div>
+                <p>{this.state.name}</p>
+                <button type="button" onClick={this.handleClick}>UPPERCASE</button>
+                </div>
+        )
+    }
+    
+}
+#+end_src
+
+****** Common Mistake
+Make sure don't invoke the function immediately
+#+begin_src js
+    <button type="button" onClick={this.handleClick()}>UPPERCASE</button> // Don't invoke the function here
+#+end_src
+In this case, function will be invoked immediately, not on the event
+
+****** In line arrow functions vs. Bind
+There's no noticable performance benefits of using bind in the constructor.
+
+***** Forms
+:PROPERTIES:
+:EXPORT_FILE_NAME: react-forms
+:EXPORT_DATE: <2017-11-15 Wed>
+:END:
+
+****** Objectives
+       - Describe a controlled component vs. uncontrolled
+       - Handle submit onSubmit
+
+****** Uncontrolled Component
+The component that react doesn't have control over
+#+begin_src js
+<input type="text" />
+#+end_src
+React is not aware of what the user is typing, the browser is in charge of the state
+
+****** Controlled Component
+#+begin_src js
+<input type="text" value={this.state.inputText}/>
+#+end_src
+
+React is now in control of the state via this.state.inputText, but the input can't be updated
+
 * DataCamp
 * DataQuest                                  :@dataquest:
+** Advanced Python
+*** OOP in Python
+Learn advanced concepts in Python, including more on object-oriented programming, lambda functions, and exception handling.
+- Learn how to create powerful custom classes because of OOP concepts like inheritance and exception handling
+- Learn the basics of computer architecture and parallel processing to help speed up your code
+
+**** Solving Problems with Code
+:PROPERTIES:
+:EXPORT_FILE_NAME: solving-problems-with-code
+:EXPORT_DATE: <2017-11-14 Tue>
+:END:
+We've worked with variables, loops, lists, and other basic building blocks of programming. We know how to use them, but we need to begin identifying when they're appropriate.
+
+Computer programming is an engineering discipline. A successful engineer must be able to think through complex problems and choose an optimal solution. This involves careful planning, some trial and error, and above all else, experience. It's important to practice programming so you can build an intuition for the tools and approaches that fit a situation best.
+
+**** Defining Custom Classes
+:PROPERTIES:
+:EXPORT_FILE_NAME: defining-custom-classes
+:EXPORT_DATE: <2017-11-14 Tue>
+:END:
+
+Let's take a look at how to use custom classes. We'll use them to explore data on NBA players from the 2013-2014 season. The statistics are in a CSV file with a header and some rows of data.
+
+We need an easy way to represent both the players and the teams. Let's focus on how we can use custom classes to compare the average ages of the players on each team.
+
+You can see in the starter code that we've defined a Player class and set up the default ~__init__~ method to accept a data row as an argument. We made a deliberate choice to split up the logic of players and teams so our code is easy to read and maintain. We also made the convenient choice to initialize our Player instances using a data row. That's because all of the information is present in a row, and it will make it easier to create Player objects from the data set later on.
+
+First, let's load data
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+import pandas as pd
+path = "~/Dropbox/BlogHugo/pomodorocoder.github.io/org/data/nba_players_2013.csv"
+players = pd.read_csv(path)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+:END:
+
+Create a Player Class
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+class Player():
+    def __init__(self, data_row):
+        self.player_name = data_row[0]
+        self.position = data_row[1]
+        self.age = data_row[2]
+        self.team = data_row[3]
+
+first_player = Player(players.iloc[0])
+first_player.player_name
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+Quincy Acy
+:END:
+
+Several takeaways here:
+- The special ~__init__~ function runs whenever a class is instantiated
+- The ~init~ function can take arguments, but self is always the first one
+- self is just a reference to the instance of the class
+- It is automatically passed in when you instantiate an instance of the class
+
+Create a Team class
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+class Team():
+    def __init__(self, data):
+        self.team_name = data
+
+spurs = Team("San Antonio Spurs")
+spurs.team_name
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+San Antonio Spurs
+:END:
+
+**** Adding Instance Properties
+:PROPERTIES:
+:EXPORT_FILE_NAME: adding-instance-properties
+:EXPORT_DATE: 
+:END:
+Now that we have a Team class with a team name, we can also store a team roster within each Team instance.
+
+We'll represent a roster as a list of Player instances. We can write code inside the ~__init__~ method to run some initialization logic.
+
+Modify the __init__ method of the Team class to loop through our data set and add a player to the roster every time the row's team name matches the instance's team_name.
+- You can add an item to a list using .append(item).
+- Store the "San Antonio Spurs" team in spurs.
+
+#+BEGIN_SRC python :session :file  :exports both :results raw drawer
+class Player():
+    # The special __init__ function runs whenever a class is instantiated
+    # The init function can take arguments, but self is always the first one
+    # Self is just a reference to the instance of the class
+    # It is automatically passed in when you instantiate an instance of the class
+    def __init__(self, data_row):
+        self.player_name = data_row[0]
+        self.position = data_row[1]
+        self.age = int(data_row[2])
+        self.team = data_row[3]
+
+# Initialize a player using the first row of our data set
+first_player = Player(players.iloc[0])
+
+class Team():
+    def __init__(self, team_name):
+        self.team_name = team_name
+        # Team roster initially empty
+        self.roster = []
+        # Find the players for the roster in the data set
+        for row in players.iterrows():
+            if team_name == row[-1][3]:
+                self.roster.append(row[-1][0])
+                
+spurs = Team("Oklahoma City Thunder")
+spurs.roster
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+| Steven Adams | Nick Collison | Kevin Durant | Derek Fisher | Ryan Gomes | Serge Ibaka | Royal Ivey | Reggie Jackson | Perry Jones | Jeremy Lamb | Kendrick Perkins | Andre Roberson | Thabo Sefolosha | Mustafa Shakur | Hasheem Thabeet | Russell Westbrook | Reggie Williams |
+:END:
+
+**** Instance Methods
+:PROPERTIES:
+:EXPORT_FILE_NAME: instance-methods
+:EXPORT_DATE: <2017-11-14 Tue>
+:END:
+
+The Player and Team classes we've defined serve as blueprints that we can use to create instances of these classes. Classes and the instances of those classes, which are collectively known as objects, are fundamental to object-oriented programming.
+
+We can define some of our own methods on a class. For example, if we want to compute the average age of the players on a team, we would write a method for the Team class that does this. However, because this number can be different for each team, we want to make sure the method acts individually on specific instances of the Team class. We call these methods instance methods.
+
+For method declarations, the first argument to the method is always self, even though we don't explicitly pass in self when we call the method. self is a reference to the current object we're working with. It's useful when we want to access properties of that object within the method we're defining.
+
+Write an ~average_age()~ method for the Team class that computes the average age of the Team instance.
+- We've provided a method, ~num_players~, that returns the total number of players on a Team instance.
+- Store the result of calling ~average_age()~ on the "San Antonio Spurs" team in ~spurs_avg_age~.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+class Player():
+    # The special __init__ function runs whenever a class is instantiated
+    # The init function can take arguments, but self is always the first one
+    # Self is just a reference to the instance of the class
+    # It is automatically passed in when you instantiate an instance of the class
+    def __init__(self, data_row):
+        self.player_name = data_row[0]
+        self.position = data_row[1]
+        self.age = int(data_row[2])
+        self.team = data_row[3]
+
+# Initialize a player using the first row of our data set
+first_player = Player(players.iloc[0])
+
+class Team_1():
+    def __init__(self, team_name):
+        self.team_name = team_name
+        # Team roster initially empty
+        self.roster = []
+        # Find the players for the roster in the data set
+        for row in players.iterrows():
+            if self.team_name == row[-1][3]:
+                self.roster.append(row[-1][0])
+
+        # Find the number of players
+    def num_players(self):
+        count = 0
+        for player in self.roster:
+            count += 1
+        return count
+
+        # Find the average age
+    def average_age(self):
+        total_age = 0
+        count = 0
+        for row in players.iterrows():
+            if self.team_name == row[-1][3]:
+                total_age += int(row[-1][2])
+                count += 1
+        return (total_age / count)
+
+spurs = Team_1("San Antonio Spurs")
+spurs_num_players = spurs.num_players()
+spurs_avg_age = spurs.average_age()
+spurs_avg_age
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+28
+:END:
+
+**** Class Method
+:PROPERTIES:
+:EXPORT_FILE_NAME: class-method
+:EXPORT_DATE: <2017-11-14 Tue>
+:END:
+
+In traditional *object-oriented programming*, everything (yes, everything) is an object. Integers are objects, and so are Booleans. While Python isn't quite this object-oriented, objects are nonetheless abundant in the Python language. For example, the math.floor function is really just a class method for the math class. Class methods act on an entire class, rather than a particular instance of one. We often use them as utility functions.
+
+Notice in the starter code that we've rewritten our ~average_age()~ method to use the math class, along with a list comprehension. This is somewhat advanced Python code, but you've seen all of it before. The math.fsum method acts on the math class, takes an iterable (i.e., a list or list-like) argument, and sums the values in the list to produce a result.
+
+Notice also that we've begun writing a class method for you. The @classmethod line that appears above it tells the Python interpreter that the method is a class method. You'll need to follow this pattern whenever you declare class methods.
+
+- Modify the older_team method to return the team with the greatest average age.
+- Store the result of calling older_team on the "New York Knicks" team and the "Miami Heat" team in old_team.
+- Read through all of the code we've written so far for our Team class. It's full of advanced Python concepts that will be very useful to you.
+
+#+BEGIN_SRC ipython :session :file  :exports both :results raw drawer
+import math
+
+class Player():
+    # The special __init__ function runs whenever a class is instantiated
+    # The init function can take arguments, but self is always the first one
+    # Self is just a reference to the instance of the class
+    # It's automatically passed in when you instantiate an instance of the class
+    def __init__(self, data_row):
+        self.player_name = data_row[0]
+        self.position = data_row[1]
+        self.age = int(data_row[2])
+        self.team = data_row[3]
+
+class Team():
+    def __init__(self, team_name):
+        self.team_name = team_name
+        self.roster = []
+        for row in nba:
+            if row[3] == self.team_name:
+                self.roster.append(Player(row))
+    
+    def num_players(self):
+        count = 0
+        for player in self.roster:
+            count += 1
+        return count
+   
+    def average_age(self):
+        return math.fsum([player.age for player in self.roster]) / self.num_players()
+    
+    @classmethod
+    def older_team(self, team1, team2):
+        return "Not yet implemented"
+#+END_SRC
+
 ** Data Structure and Algorithms
    Learn how computers work and how they work with data
    *Objectives:*
@@ -988,7 +1509,7 @@ Let's start with a simple algorithm that searches for a value in a list. We coul
 
 Linear search checks a list of items for a particular value by reviewing each item in the list until it finds the one it's looking for. If it doesn't find a matching item, we can conclude that there's no matching item in the list.
 
-You'll be working with nba, a data set containing the names and ages of National Basketball Association (NBA) players from 2013, along with some statistics.
+You'll be working with players, a data set containing the names and ages of National Basketball Association (NBA) players from 2013, along with some statistics.
 
 - Write a linear search algorithm to find "Kobe Bryant" in the nba data set.
   - The first column (index 0) contains each player's name.
@@ -1082,7 +1603,6 @@ durant_age = player_age("Kevin Durant")
 shaq_age = player_age("Shaquille O'Neal")
 #+END_SRC
 
-
 **** What makes an algorithm smart?
 :PROPERTIES:
 :EXPORT_FILE_NAME: what-makes-an-algorithm-smart
@@ -1094,7 +1614,6 @@ So far, we've been working with linear search, which is a fairly basic algorithm
 With multiple algorithms to choose from, a programmer has to make trade-offs and decide which algorithm best suits his or her needs. The most common factor to consider is time complexity.
 
 Time complexity is a measurement of how much time an algorithm takes with respect to its input size. Algorithms with smaller time complexities generally take less time and are more desirable.
-
 
 **** Constant Time Algorithms
 :PROPERTIES:
@@ -1119,6 +1638,105 @@ We tend to think of algorithms in terms of steps. We consider any basic operatio
 Most complicated algorithms are not constant time. However, many operations within larger algorithms are constant time. Since we don't particularly care about what the constant is, we don't need to tediously count steps, as long as we're certain we'll get a constant.
 
 An example of an operation that's not constant time is a loop that touches every element in an input list. Since a larger input would necessitate more steps, we can't treat this operation as a constant. We'll look closely at cases like this soon.
+
+It's important to recognize the time complexity of your algorithms. This exercise will help you learn to identify them.
+
+Read the function implementations in the code cell. Of A, B, and C, one implementation is not constant time.
+
+Implementation A: Convert degrees Celcius to degrees Fahrenheit
+#+BEGIN_SRC python
+def celcius_to_fahrenheit(degrees):
+    step_1 = degrees * 1.8
+    step_2 = step_1 + 32
+    return step_2
+#+END_SRC
+
+Implementation B: Reverse a list
+#+begin_src python
+def reverse(ls):
+    length = len(ls)
+    new_list = []
+    for i in range(length):
+        new_list[i] = ls[length - i]
+    return new_list
+#+end_src
+
+Implementation C: Print a blastoff message after a countdown
+#+begin_src python
+def blastoff(message):
+    count = 10
+    for i in range(count):
+        print(count - i)
+    print(message)
+#+end_src
+
+So both A and C are constant time as they have nothing to do with a variable but B depends on the length of the list
+
+**** Algorithms Linear Time
+:PROPERTIES:
+:EXPORT_FILE_NAME: algorithms-linear-time
+:EXPORT_DATE: <2017-11-14 Tue>
+:END:
+
+Accounting for the worst case scenario will ensure that the algorithm we choose or build is more robust.
+
+In the worst case scenario for a list of size n, the algorithm has to check n elements. We refer to this time complexity as linear time because the runtime grows at a constant rate with respect to the size of the input.
+
+Algorithms that take constant multiples of n steps (where n is the input size) are still linear time. For instance, an algorithm that takes 5n steps, or even 0.5n steps, is linear time. If we have an algorithm that prints the first half of a list (and we know the length of the list ahead of time), the algorithm will take 0.5n time. Even though it takes less than n time, we still consider it linear.
+
+It's also worth noting that we only care about performance at a large scale. At a small scale, most algorithms will run pretty quickly, and it's only when n becomes large that we worry about time complexity.
+
+Consequently, we only consider the highest order of n for time complexity. That means that an algorithm that runs in 9n + 20 time is linear, because the constant component is negligible for large values of n.
+
+- Example of A Linear Algorithm: Find the length of a list
+
+#+begin_src python
+def length(ls):
+    count = 0
+    for elem in ls:
+        count = count + 1
+length_time_complexity = "linear"
+#+end_src
+
+- Another Example of A Linear Algorithm: Check whether a list is empty -- Implementation 1
+#+begin_src python
+def is_empty_2(ls):
+    for element in ls:
+        return False
+    return True
+is_empty_2_complexity = "linear"
+#+end_src
+
+- Example of a Constant Algorithm: Check whether a list is empty -- Implementation 2
+#+begin_src python
+def is_empty_1(ls):
+    if length(ls) == 0:
+        return True
+    else:
+        return False
+is_empty_1_complexity = "constant"
+#+end_src
+
+So, if an internal function costs n operations, we must be sure to factor that into our time complexity analysis.
+
+**** Notation for Time Complexity
+:PROPERTIES:
+:EXPORT_FILE_NAME: notation-for-time-complexity
+:EXPORT_DATE: <2017-11-14 Tue>
+:END:
+
+When discussing time complexity, we should use the proper notation. Most commonly, we use *Big-O Notation*.
+
+- To denote constant time, we would write ~O(1)~, because 1 is a constant (and a simple constant).
+- To denote linear time, we would write ~O(n)~, because n is the simplest example of linearity.
+
+Big-O Notation follows a similar pattern for other time complexities. For example, ~O(n^2)~, ~O(2^n)~, and ~O(log(n))~ are all valid notation. The algorithms with these complexities are probably rather complicated. For now, it's enough to be able to recognize Big-O Notation so we can use it to describe time complexities in future missions.
+
+Time complexity is an important consideration when we're analyzing real-world data. An inefficient algorithm will perform very slowly on a large data set.
+
+Algorithms with lower-order time complexities are more efficient. Constant time algorithms, which we denote with ~O(1)~, are more efficient than linear time algorithms, which we denote with ~O(n)~. Similarly, an algorithm with complexity ~O(n^2)~ is more efficient than one with complexity ~O(n^3)~.
+
+When considering algorithms, we always want to choose the one with the lowest time complexity. It may not always be the easiest one to implement, but the extra effort is usually worth the resulting efficiency.
 
 * Pluralsight
 
@@ -1199,5 +1817,7 @@ console.log(myHouse.countFloors())
 
 * Youtube
 
-** Brandon Rhodes Pands
+** Brandon Rhodes Pandas
+
+*** 
 * Lynda

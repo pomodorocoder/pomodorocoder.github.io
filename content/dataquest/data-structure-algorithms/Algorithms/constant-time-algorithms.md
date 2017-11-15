@@ -1,7 +1,7 @@
 +++
 title = "Constant Time Algorithms"
 date = 2017-11-13T00:00:00-05:00
-lastmod = 2017-11-13T18:42:45-05:00
+lastmod = 2017-11-14T08:20:04-05:00
 categories = ["dataquest"]
 weight = 4006
 draft = false
@@ -23,3 +23,39 @@ We tend to think of algorithms in terms of steps. We consider any basic operatio
 Most complicated algorithms are not constant time. However, many operations within larger algorithms are constant time. Since we don't particularly care about what the constant is, we don't need to tediously count steps, as long as we're certain we'll get a constant.
 
 An example of an operation that's not constant time is a loop that touches every element in an input list. Since a larger input would necessitate more steps, we can't treat this operation as a constant. We'll look closely at cases like this soon.
+
+It's important to recognize the time complexity of your algorithms. This exercise will help you learn to identify them.
+
+Read the function implementations in the code cell. Of A, B, and C, one implementation is not constant time.
+
+Implementation A: Convert degrees Celcius to degrees Fahrenheit
+
+```python
+def celcius_to_fahrenheit(degrees):
+    step_1 = degrees * 1.8
+    step_2 = step_1 + 32
+    return step_2
+```
+
+Implementation B: Reverse a list
+
+```python
+def reverse(ls):
+    length = len(ls)
+    new_list = []
+    for i in range(length):
+        new_list[i] = ls[length - i]
+    return new_list
+```
+
+Implementation C: Print a blastoff message after a countdown
+
+```python
+def blastoff(message):
+    count = 10
+    for i in range(count):
+        print(count - i)
+    print(message)
+```
+
+So both A and C are constant time as they have nothing to do with a variable but B depends the length of the list
