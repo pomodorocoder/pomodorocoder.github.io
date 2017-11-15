@@ -40,6 +40,16 @@ year,statement,,, 1997,&amp;quot;The FBI information included that al-Mairi&#39;
     </item>
     
     <item>
+      <title>Defining Custom Classes</title>
+      <link>https://pomodorocoder.github.io/dataquest/python-advanced/oop/defining-custom-classes/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/python-advanced/oop/defining-custom-classes/</guid>
+      <description>Let&amp;rsquo;s take a look at how to use custom classes. We&amp;rsquo;ll use them to explore data on NBA players from the 2013-2014 season. The statistics are in a CSV file with a header and some rows of data.
+We need an easy way to represent both the players and the teams. Let&amp;rsquo;s focus on how we can use custom classes to compare the average ages of the players on each team.</description>
+    </item>
+    
+    <item>
       <title>Defining a Class</title>
       <link>https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/define-class/</link>
       <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
@@ -89,6 +99,27 @@ The sum() function exhibits both modularity and abstraction.</description>
       <description>We can add binary numbers together, just like we can with base 10 numbers
 In the example below:
  a is in base 10 &amp;ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits &amp;ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero.</description>
+    </item>
+    
+    <item>
+      <title>Adding Instance Properties</title>
+      <link>https://pomodorocoder.github.io/dataquest/python-advanced/oop/adding-instance-properties/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/python-advanced/oop/adding-instance-properties/</guid>
+      <description>Now that we have a Team class with a team name, we can also store a team roster within each Team instance.
+We&amp;rsquo;ll represent a roster as a list of Player instances. We can write code inside the __init__ method to run some initialization logic.
+Modify the init method of the Team class to loop through our data set and add a player to the roster every time the row&amp;rsquo;s team name matches the instance&amp;rsquo;s team_name.</description>
+    </item>
+    
+    <item>
+      <title>Instance Methods</title>
+      <link>https://pomodorocoder.github.io/dataquest/python-advanced/oop/instance-methods/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/python-advanced/oop/instance-methods/</guid>
+      <description>The Player and Team classes we&amp;rsquo;ve defined serve as blueprints that we can use to create instances of these classes. Classes and the instances of those classes, which are collectively known as objects, are fundamental to object-oriented programming.
+We can define some of our own methods on a class. For example, if we want to compute the average age of the players on a team, we would write a method for the Team class that does this.</description>
     </item>
     
     <item>
@@ -147,6 +178,17 @@ We can use an encoding system to convert these code points to binary integers. T
     </item>
     
     <item>
+      <title>Algorithms Linear Time</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/algorithms-linear-time/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/algorithms-linear-time/</guid>
+      <description>Accounting for the worst case scenario will ensure that the algorithm we choose or build is more robust.
+In the worst case scenario for a list of size n, the algorithm has to check n elements. We refer to this time complexity as linear time because the runtime grows at a constant rate with respect to the size of the input.
+Algorithms that take constant multiples of n steps (where n is the input size) are still linear time.</description>
+    </item>
+    
+    <item>
       <title>Strings with Unicode</title>
       <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/strings-with-unicode/</link>
       <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
@@ -155,6 +197,16 @@ We can use an encoding system to convert these code points to binary integers. T
       <description>ASCII is a subset of Unicode. Unicode implements all of the ASCII characters, as well as the additional characters that code points allow.
 This lets us create Unicode strings that combine both ASCII and Unicode characters.
 By default, Python 3 uses Unicode for all strings, and encodes them with UTF-8. That means we can enter the Unicode code points or the actual characters.</description>
+    </item>
+    
+    <item>
+      <title>Notation for Time Complexity</title>
+      <link>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/notation-for-time-complexity/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/notation-for-time-complexity/</guid>
+      <description>When discussing time complexity, we should use the proper notation. Most commonly, we use Big-O Notation.
+ To denote constant time, we would write O(1), because 1 is a constant (and a simple constant). To denote linear time, we would write O(n), because n is the simplest example of linearity.  Big-O Notation follows a similar pattern for other time complexities. For example, O(n^2), O(2^n), and O(log(n)) are all valid notation.</description>
     </item>
     
     <item>
@@ -275,6 +327,15 @@ Counter takes a list as input. It creates a dictionary where the keys are list i
     </item>
     
     <item>
+      <title>Create React App</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/create-react-app-and-props/create-react-app/</link>
+      <pubDate>Tue, 14 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/create-react-app-and-props/create-react-app/</guid>
+      <description> Objectives  Webpack Install create React App Make an application using Create React App  Webpack  A module bundler for modern JS applications Combine different JS files into a bundle.js Has a plugin system to run tools like babel Also bundles other assets like css, images etc  Create React App Uses Webpack  npm install -g create-react-app create-react-app Name Of the Project cd Name Of the Project npm start  </description>
+    </item>
+    
+    <item>
       <title>Intro to State</title>
       <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/state-intro/</link>
       <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
@@ -294,12 +355,36 @@ class App extends Component { constructor(props) { super(props); this.state = {f
     </item>
     
     <item>
+      <title>Events</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-events/</link>
+      <pubDate>Wed, 15 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-events/</guid>
+      <description>Objectives  Demostrate an onClick event Using bind functions vs inline callbacks  onClick Event class ClickExample extends Component { constructor(props) { super(props); this.state = {name: &amp;quot;Isaac&amp;quot;}; } render(){ return( &amp;lt;div&amp;gt; &amp;lt;p&amp;gt;{this.state.name}&amp;lt;/p&amp;gt; &amp;lt;button type=&amp;quot;button&amp;quot; onClick={() =&amp;gt; this.setState({name: &amp;quot;ISAAC&amp;quot;})}&amp;gt; UPPERCASE &amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ); } }  Before Click isaac
+UPPERCASE   After clicking the button:
+Result ISAAC
+UPPERCASE   Using predefined function class Example extends Component { constructor(props){ super(props); this.</description>
+    </item>
+    
+    <item>
       <title>Pure Functions</title>
       <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/</link>
       <pubDate>Mon, 13 Nov 2017 00:00:00 -0500</pubDate>
       
       <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/</guid>
       <description>Objectives  Define Pure Functions  Pure Function Definition  A function with no side effects It does not modify its inputs It&amp;rsquo;s repeatable To generate the outputs, we don&amp;rsquo;t need to change the inputs  Example A.1: Not a Pure Function  The code below is not a pure function as it changes the values in the input array It is not repeatable: if we run the function multiple times it won&amp;rsquo;t generate the same results  function doubleVals(arr) { for(var i = 0; i &amp;lt; arr.</description>
+    </item>
+    
+    <item>
+      <title>Forms</title>
+      <link>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-forms/</link>
+      <pubDate>Wed, 15 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-forms/</guid>
+      <description>Objectives  Describe a controlled component vs. uncontrolled Handle submit onSubmit  Uncontrolled Component The component that react doesn&amp;rsquo;t have control over
+&amp;lt;input type=&amp;quot;text&amp;quot; /&amp;gt;  React is not aware of what the user is typing, the browser is in charge of the state
+Controlled Component without Update &amp;lt;input type=&amp;quot;text&amp;quot; value={this.state.inputText}/&amp;gt;  React is now in control of the state via this.state.inputText, but the input can&amp;rsquo;t be updated
+Controlled Component with Update &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;inputText&amp;quot; value = {this.</description>
     </item>
     
     <item>

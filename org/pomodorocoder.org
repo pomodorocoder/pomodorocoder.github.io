@@ -608,12 +608,48 @@ The component that react doesn't have control over
 #+end_src
 React is not aware of what the user is typing, the browser is in charge of the state
 
-****** Controlled Component
+****** Controlled Component without Update
 #+begin_src js
 <input type="text" value={this.state.inputText}/>
 #+end_src
 
 React is now in control of the state via this.state.inputText, but the input can't be updated
+
+****** Controlled Component with Update
+#+begin_src js
+<input
+  type="text"
+  name="inputText"
+  value = {this.state.inputText}
+  onChange{
+      (e) => {
+          this.setState({inputText: e.target.value})
+      }
+  }
+/>
+#+end_src
+React is not in control of the state via this.state.inputText and the state can change via onChange
+
+****** onSubmit
+Lastly, let's discuss how to submit a form
+#+begin_src js
+<form onSubmit={(e) => {
+  e.preventDefault();
+  const data = [...this.state.data, this.state.inputText];
+  this.setState({data, inputText: ''});
+}}>
+<input
+  type="text"
+  name="inputText"
+  value={this.state.inputText}
+  onChange={(e) => {
+      this.setState({[e.target.name]: e.target.value})
+  }}
+>
+</form>
+#+end_src
+
+A button's click is not the same as a submit, use onSubmit
 
 * DataCamp
 * DataQuest                                  :@dataquest:

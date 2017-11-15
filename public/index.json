@@ -32,7 +32,7 @@
 	"title": "DataQuest",
 	"tags": [],
 	"description": "",
-	"content": "  Data Structure and Algorithms  "
+	"content": "  Advanced Python Data Structure and Algorithms  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/pluralsight/",
@@ -102,7 +102,14 @@
 	"title": "Advanced Web Bootcamp",
 	"tags": [],
 	"description": "",
-	"content": "  React State Virtual DOM, Events and Forms  "
+	"content": "  Create React App and Props React State Virtual DOM, Events and Forms  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/python-advanced/",
+	"title": "Advanced Python",
+	"tags": [],
+	"description": "",
+	"content": "  OOP in Python  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/datacamp/python-data-science-toolbox/",
@@ -217,6 +224,13 @@
 	"content": "  Logistic Regression  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/dataquest/python-advanced/oop/",
+	"title": "OOP in Python",
+	"tags": [],
+	"description": "",
+	"content": "  Defining Custom Classes Adding Instance Properties Instance Methods  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/",
 	"title": "Memory and Unicode",
 	"tags": [],
@@ -228,7 +242,7 @@
 	"title": "Algorithms",
 	"tags": [],
 	"description": "",
-	"content": "  Implementing an Algorithm The Importance of Modularity and Abstraction Linear Search with Modular Code What makes an algorithm smart? Constant Time Algorithms  "
+	"content": "  Implementing an Algorithm The Importance of Modularity and Abstraction Linear Search with Modular Code What makes an algorithm smart? Constant Time Algorithms Algorithms Linear Time Notation for Time Complexity  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/",
@@ -257,6 +271,13 @@
 	"tags": [],
 	"description": "",
 	"content": " Logistic Regression as a method for classification Some examples of classification problems  Spam vs. Ham emails Loan Default Disease Diagnosis  Normal linear regression model won\u0026rsquo;t fit well on binary groups   "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/python-advanced/oop/defining-custom-classes/",
+	"title": "Defining Custom Classes",
+	"tags": [],
+	"description": "",
+	"content": "Let\u0026rsquo;s take a look at how to use custom classes. We\u0026rsquo;ll use them to explore data on NBA players from the 2013-2014 season. The statistics are in a CSV file with a header and some rows of data.\nWe need an easy way to represent both the players and the teams. Let\u0026rsquo;s focus on how we can use custom classes to compare the average ages of the players on each team.\nYou can see in the starter code that we\u0026rsquo;ve defined a Player class and set up the default __init__ method to accept a data row as an argument. We made a deliberate choice to split up the logic of players and teams so our code is easy to read and maintain. We also made the convenient choice to initialize our Player instances using a data row. That\u0026rsquo;s because all of the information is present in a row, and it will make it easier to create Player objects from the data set later on.\nFirst, let\u0026rsquo;s load data\nimport pandas as pd players = pd.read_csv(path)  Create a Player Class\nclass Player(): def __init__(self, data_row): self.player_name = data_row[0] self.position = data_row[1] self.age = data_row[2] self.team = data_row[3] first_player = Player(players.iloc[0]) first_player.player_name  Results Quincy Acy  Several takeaways here:\n The special __init__ function runs whenever a class is instantiated The init function can take arguments, but self is always the first one self is just a reference to the instance of the class It is automatically passed in when you instantiate an instance of the class  Create a Team class\nclass Team(): def __init__(self, data): self.team_name = data spurs = Team(\u0026quot;San Antonio Spurs\u0026quot;) spurs.team_name  Results San Antonio Spurs  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/define-class/",
@@ -294,6 +315,20 @@
 	"content": "We can add binary numbers together, just like we can with base 10 numbers\nIn the example below:\n a is in base 10 \u0026ndash; because we have 10 possible digits, the highest value we can represent with one digit is 9 When we want to represent a value one higher, we need to add another digit. a now has two digits \u0026ndash; we incremented the invisible leading digit, which was 0 and is now 1, and set the last digit back to zero.  a = 9 a += 1 a  Results 10  When we add 1 to 19, we increment the leading 1 by 1, and then set the last digit to 0, giving us 20.\na = 19 a += 1 a  Results 20  When we add 1 to 99, we increment the last digit by 1, and add 1 to the first digit, but the first digit is now greater than 9, so we have to increment the invisible leading digit.\na = 99 a += 1 a  Results 100  Binary addition works the exact same way, except the highest value any single digit can represent is 1\n We\u0026rsquo;ll add binary values by defining a binary_add function that was made just for this exercise It\u0026rsquo;s not extremely important to know how it works at the moment  b = \u0026quot;1\u0026quot; def binary_add(a, b): return bin(int(a, 2) + int(b, 2))[2:] c = binary_add(b, \u0026quot;1\u0026quot;) c  Results 10  c now equals \u0026ldquo;11\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 11  c now equals \u0026ldquo;100\u0026rdquo;\nc = binary_add(c, \u0026quot;1\u0026quot;) c  Results 100  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/dataquest/python-advanced/oop/adding-instance-properties/",
+	"title": "Adding Instance Properties",
+	"tags": [],
+	"description": "",
+	"content": "Now that we have a Team class with a team name, we can also store a team roster within each Team instance.\nWe\u0026rsquo;ll represent a roster as a list of Player instances. We can write code inside the __init__ method to run some initialization logic.\nModify the init method of the Team class to loop through our data set and add a player to the roster every time the row\u0026rsquo;s team name matches the instance\u0026rsquo;s team_name.\n You can add an item to a list using .append(item). Store the \u0026ldquo;San Antonio Spurs\u0026rdquo; team in spurs.  class Player(): # The special __init__ function runs whenever a class is instantiated # The init function can take arguments, but self is always the first one # Self is just a reference to the instance of the class # It is automatically passed in when you instantiate an instance of the class def __init__(self, data_row): self.player_name = data_row[0] self.position = data_row[1] self.age = int(data_row[2]) self.team = data_row[3] # Initialize a player using the first row of our data set first_player = Player(players.iloc[0]) class Team(): def __init__(self, team_name): self.team_name = team_name # Team roster initially empty self.roster = [] # Find the players for the roster in the data set for row in players.iterrows(): if team_name == row[-1][3]: self.roster.append(row[-1][0]) spurs = Team(\u0026quot;Oklahoma City Thunder\u0026quot;) spurs.roster  Results [\u0026lsquo;Steven Adams\u0026rsquo;, \u0026lsquo;Nick Collison\u0026rsquo;, \u0026lsquo;Kevin Durant\u0026rsquo;, \u0026lsquo;Derek Fisher\u0026rsquo;, \u0026lsquo;Ryan Gomes\u0026rsquo;, \u0026lsquo;Serge Ibaka\u0026rsquo;, \u0026lsquo;Royal Ivey\u0026rsquo;, \u0026lsquo;Reggie Jackson\u0026rsquo;, \u0026lsquo;Perry Jones\u0026rsquo;, \u0026lsquo;Jeremy Lamb\u0026rsquo;, \u0026lsquo;Kendrick Perkins\u0026rsquo;, \u0026lsquo;Andre Roberson\u0026rsquo;, \u0026lsquo;Thabo Sefolosha\u0026rsquo;, \u0026lsquo;Mustafa Shakur\u0026rsquo;, \u0026lsquo;Hasheem Thabeet\u0026rsquo;, \u0026lsquo;Russell Westbrook\u0026rsquo;, \u0026lsquo;Reggie Williams\u0026rsquo;]\n  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/python-advanced/oop/instance-methods/",
+	"title": "Instance Methods",
+	"tags": [],
+	"description": "",
+	"content": "The Player and Team classes we\u0026rsquo;ve defined serve as blueprints that we can use to create instances of these classes. Classes and the instances of those classes, which are collectively known as objects, are fundamental to object-oriented programming.\nWe can define some of our own methods on a class. For example, if we want to compute the average age of the players on a team, we would write a method for the Team class that does this. However, because this number can be different for each team, we want to make sure the method acts individually on specific instances of the Team class. We call these methods instance methods.\nFor method declarations, the first argument to the method is always self, even though we don\u0026rsquo;t explicitly pass in self when we call the method. self is a reference to the current object we\u0026rsquo;re working with. It\u0026rsquo;s useful when we want to access properties of that object within the method we\u0026rsquo;re defining.\nWrite an average_age() method for the Team class that computes the average age of the Team instance.\n We\u0026rsquo;ve provided a method, num_players, that returns the total number of players on a Team instance. Store the result of calling average_age() on the \u0026ldquo;San Antonio Spurs\u0026rdquo; team in spurs_avg_age.  class Player(): # The special __init__ function runs whenever a class is instantiated # The init function can take arguments, but self is always the first one # Self is just a reference to the instance of the class # It is automatically passed in when you instantiate an instance of the class def __init__(self, data_row): self.player_name = data_row[0] self.position = data_row[1] self.age = int(data_row[2]) self.team = data_row[3] # Initialize a player using the first row of our data set first_player = Player(players.iloc[0]) class Team_1(): def __init__(self, team_name): self.team_name = team_name # Team roster initially empty self.roster = [] # Find the players for the roster in the data set for row in players.iterrows(): if self.team_name == row[-1][3]: self.roster.append(row[-1][0]) # Find the number of players def num_players(self): count = 0 for player in self.roster: count += 1 return count # Find the average age def average_age(self): total_age = 0 count = 0 for row in players.iterrows(): if self.team_name == row[-1][3]: total_age += int(row[-1][2]) count += 1 return (total_age / count) spurs = Team_1(\u0026quot;San Antonio Spurs\u0026quot;) spurs_num_players = spurs.num_players() spurs_avg_age = spurs.average_age() spurs_avg_age  Results 28\n  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/",
 	"title": "Linear Search with Modular Code",
 	"tags": [],
@@ -319,7 +354,7 @@
 	"title": "Constant Time Algorithms",
 	"tags": [],
 	"description": "",
-	"content": "A constant algorithm takes the same amount of time to complete, regardless of the input size.\nFor example, let\u0026rsquo;s consider an algorithm that returns the first element of a list:\ndef first(ls): return ls[0]  Regardless of list size, the algorithm returns the first element in constant time. It only takes one operation to retrieve this element, no matter how large the list.\nWe tend to think of algorithms in terms of steps. We consider any basic operation like setting a variable or performing arithmetic a step. Algorithms that take a constant number of steps are always constant time, even if that constant number is not 1.\nMost complicated algorithms are not constant time. However, many operations within larger algorithms are constant time. Since we don\u0026rsquo;t particularly care about what the constant is, we don\u0026rsquo;t need to tediously count steps, as long as we\u0026rsquo;re certain we\u0026rsquo;ll get a constant.\nAn example of an operation that\u0026rsquo;s not constant time is a loop that touches every element in an input list. Since a larger input would necessitate more steps, we can\u0026rsquo;t treat this operation as a constant. We\u0026rsquo;ll look closely at cases like this soon.\n"
+	"content": "A constant algorithm takes the same amount of time to complete, regardless of the input size.\nFor example, let\u0026rsquo;s consider an algorithm that returns the first element of a list:\ndef first(ls): return ls[0]  Regardless of list size, the algorithm returns the first element in constant time. It only takes one operation to retrieve this element, no matter how large the list.\nWe tend to think of algorithms in terms of steps. We consider any basic operation like setting a variable or performing arithmetic a step. Algorithms that take a constant number of steps are always constant time, even if that constant number is not 1.\nMost complicated algorithms are not constant time. However, many operations within larger algorithms are constant time. Since we don\u0026rsquo;t particularly care about what the constant is, we don\u0026rsquo;t need to tediously count steps, as long as we\u0026rsquo;re certain we\u0026rsquo;ll get a constant.\nAn example of an operation that\u0026rsquo;s not constant time is a loop that touches every element in an input list. Since a larger input would necessitate more steps, we can\u0026rsquo;t treat this operation as a constant. We\u0026rsquo;ll look closely at cases like this soon.\nIt\u0026rsquo;s important to recognize the time complexity of your algorithms. This exercise will help you learn to identify them.\nRead the function implementations in the code cell. Of A, B, and C, one implementation is not constant time.\nImplementation A: Convert degrees Celcius to degrees Fahrenheit\ndef celcius_to_fahrenheit(degrees): step_1 = degrees * 1.8 step_2 = step_1 + 32 return step_2  Implementation B: Reverse a list\ndef reverse(ls): length = len(ls) new_list = [] for i in range(length): new_list[i] = ls[length - i] return new_list  Implementation C: Print a blastoff message after a countdown\ndef blastoff(message): count = 10 for i in range(count): print(count - i) print(message)  So both A and C are constant time as they have nothing to do with a variable but B depends the length of the list\n"
 },
 {
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/unicode-intro/",
@@ -329,11 +364,25 @@
 	"content": "What happened to all of the other characters and alphabets in the world. ASCII can\u0026rsquo;t handle them, because it only supports 255 characters. The tech community realized it needed a new standard, and created Unicode.\nUnicode assigns \u0026ldquo;code points\u0026rdquo; to characters. In Python, code points look like this: \u0026quot;\\u3232\u0026quot;\nWe can use an encoding system to convert these code points to binary integers. The most common encoding system for Unicode is UTF-8. This encoding tells a computer which code points are associated with which integers.\nUTF-8 can encode values that are longer that one byte, which enables it to store all Unicode characters. It encodes characters using a variable number of bytes, which means that it also supports regular ASCII characters (which are one byte each).\nbinary_1019 = bin(ord('\\u1019')) binary_1019  Results 0b10011111110110  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/algorithms-linear-time/",
+	"title": "Algorithms Linear Time",
+	"tags": [],
+	"description": "",
+	"content": "Accounting for the worst case scenario will ensure that the algorithm we choose or build is more robust.\nIn the worst case scenario for a list of size n, the algorithm has to check n elements. We refer to this time complexity as linear time because the runtime grows at a constant rate with respect to the size of the input.\nAlgorithms that take constant multiples of n steps (where n is the input size) are still linear time. For instance, an algorithm that takes 5n steps, or even 0.5n steps, is linear time. If we have an algorithm that prints the first half of a list (and we know the length of the list ahead of time), the algorithm will take 0.5n time. Even though it takes less than n time, we still consider it linear.\nIt\u0026rsquo;s also worth noting that we only care about performance at a large scale. At a small scale, most algorithms will run pretty quickly, and it\u0026rsquo;s only when n becomes large that we worry about time complexity.\nConsequently, we only consider the highest order of n for time complexity. That means that an algorithm that runs in 9n + 20 time is linear, because the constant component is negligible for large values of n.\n Example of A Linear Algorithm: Find the length of a list  def length(ls): count = 0 for elem in ls: count = count + 1 length_time_complexity = \u0026quot;linear\u0026quot;   Another Example of A Linear Algorithm: Check whether a list is empty \u0026ndash; Implementation 1  def is_empty_2(ls): for element in ls: return False return True is_empty_2_complexity = \u0026quot;linear\u0026quot;   Example of a Constant Algorithm: Check whether a list is empty \u0026ndash; Implementation 2  def is_empty_1(ls): if length(ls) == 0: return True else: return False is_empty_1_complexity = \u0026quot;constant\u0026quot;  So, if an internal function costs n operations, we must be sure to factor that into our time complexity analysis.\n"
+},
+{
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/strings-with-unicode/",
 	"title": "Strings with Unicode",
 	"tags": [],
 	"description": "",
 	"content": "ASCII is a subset of Unicode. Unicode implements all of the ASCII characters, as well as the additional characters that code points allow.\nThis lets us create Unicode strings that combine both ASCII and Unicode characters.\nBy default, Python 3 uses Unicode for all strings, and encodes them with UTF-8. That means we can enter the Unicode code points or the actual characters.\n"
+},
+{
+	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/notation-for-time-complexity/",
+	"title": "Notation for Time Complexity",
+	"tags": [],
+	"description": "",
+	"content": "When discussing time complexity, we should use the proper notation. Most commonly, we use Big-O Notation.\n To denote constant time, we would write O(1), because 1 is a constant (and a simple constant). To denote linear time, we would write O(n), because n is the simplest example of linearity.  Big-O Notation follows a similar pattern for other time complexities. For example, O(n^2), O(2^n), and O(log(n)) are all valid notation. The algorithms with these complexities are probably rather complicated. For now, it\u0026rsquo;s enough to be able to recognize Big-O Notation so we can use it to describe time complexities in future missions.\nTime complexity is an important consideration when we\u0026rsquo;re analyzing real-world data. An inefficient algorithm will perform very slowly on a large data set.\nAlgorithms with lower-order time complexities are more efficient. Constant time algorithms, which we denote with O(1), are more efficient than linear time algorithms, which we denote with O(n). Similarly, an algorithm with complexity O(n^2) is more efficient than one with complexity O(n^3).\nWhen considering algorithms, we always want to choose the one with the lowest time complexity. It may not always be the easiest one to implement, but the extra effort is usually worth the resulting efficiency.\n"
 },
 {
 	"uri": "https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/byte-data-types/",
@@ -413,6 +462,13 @@
 	"content": "Now put everything together, let\u0026rsquo;s write a function the count the most common tokens by a selected year\n# sentences_cia has been loaded in. # It already has the cleaned_statement column. def most_common_year(my_year): my_df = sentences_cia[sentences_cia[\u0026quot;year\u0026quot;] == my_year] combined_statements = \u0026quot; \u0026quot;.join(my_df[\u0026quot;cleaned_statement\u0026quot;]) statement_tokens = combined_statements.split(\u0026quot; \u0026quot;) filtered_tokens = [s for s in statement_tokens if len(s) \u0026gt;= 5] filtered_token_counts = Counter(filtered_tokens) common_tokens = filtered_token_counts.most_common(2) return common_tokens common_2000 = most_common_year(2000) common_2002 = most_common_year(2002) common_2013 = most_common_year(2013) common_2000     Top tokens Counts     Ahmad 9   terrorist 9    "
 },
 {
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/create-react-app-and-props/create-react-app/",
+	"title": "Create React App",
+	"tags": [],
+	"description": "",
+	"content": " Objectives  Webpack Install create React App Make an application using Create React App  Webpack  A module bundler for modern JS applications Combine different JS files into a bundle.js Has a plugin system to run tools like babel Also bundles other assets like css, images etc  Create React App Uses Webpack  npm install -g create-react-app create-react-app Name Of the Project cd Name Of the Project npm start  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/state-intro/",
 	"title": "Intro to State",
 	"tags": [],
@@ -427,11 +483,25 @@
 	"content": " Objectives  Describe the virtual DOM Define a synthetic events Describe changes in React 16  Definition  Virtual DOM is a data structure stored by React that tracks changes from one render state to the next. If something has changed from one render to the next, the browser\u0026rsquo;s DOM is updated (Reconciliation)  Synthetic Events  Supports all the native brower events, but provides a consistent API on all browsers  React 16, What\u0026rsquo;s New?  Render can return an array of JSX elements or a string  render(){ return[ \u0026lt;div key=\u0026quot;a\u0026quot;\u0026gt; First Element\u0026lt;/div\u0026gt;, \u0026lt;div key=\u0026quot;b\u0026quot;\u0026gt; Second Element\u0026lt;/div\u0026gt; ] }   Fiber is a reconciliation engine  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-events/",
+	"title": "Events",
+	"tags": [],
+	"description": "",
+	"content": " Objectives  Demostrate an onClick event Using bind functions vs inline callbacks  onClick Event class ClickExample extends Component { constructor(props) { super(props); this.state = {name: \u0026quot;Isaac\u0026quot;}; } render(){ return( \u0026lt;div\u0026gt; \u0026lt;p\u0026gt;{this.state.name}\u0026lt;/p\u0026gt; \u0026lt;button type=\u0026quot;button\u0026quot; onClick={() =\u0026gt; this.setState({name: \u0026quot;ISAAC\u0026quot;})}\u0026gt; UPPERCASE \u0026lt;/button\u0026gt; \u0026lt;/div\u0026gt; ); } }  Before Click isaac\nUPPERCASE   After clicking the button:\nResult ISAAC\nUPPERCASE   Using predefined function class Example extends Component { constructor(props){ super(props); this.state = {name: \u0026quot;isaac\u0026quot;}; this.handleClick = this.handleClick.bind(this); } handleClick(e){ this.setState((prevState, props) =\u0026gt; ({ name: prevState.name.toUpperCase() })); } render(){ return( \u0026lt;div\u0026gt; \u0026lt;p\u0026gt;{this.state.name}\u0026lt;/p\u0026gt; \u0026lt;button type=\u0026quot;button\u0026quot; onClick={this.handleClick}\u0026gt;UPPERCASE\u0026lt;/button\u0026gt; \u0026lt;/div\u0026gt; ) } }  Common Mistake Make sure don\u0026rsquo;t invoke the function immediately\n\u0026lt;button type=\u0026quot;button\u0026quot; onClick={this.handleClick()}\u0026gt;UPPERCASE\u0026lt;/button\u0026gt; // Don't invoke the function here  In this case, function will be invoked immediately, not on the event\nIn line arrow functions vs. Bind There\u0026rsquo;s no noticable performance benefits of using bind in the constructor.\n"
+},
+{
 	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/",
 	"title": "Pure Functions",
 	"tags": [],
 	"description": "",
 	"content": " Objectives  Define Pure Functions  Pure Function Definition  A function with no side effects It does not modify its inputs It\u0026rsquo;s repeatable To generate the outputs, we don\u0026rsquo;t need to change the inputs  Example A.1: Not a Pure Function  The code below is not a pure function as it changes the values in the input array It is not repeatable: if we run the function multiple times it won\u0026rsquo;t generate the same results  function doubleVals(arr) { for(var i = 0; i \u0026lt; arr.length; i++) { arr[i] = arr[i] * 2; // Note here, the value of input array is changed } return arr; }  Example A.2: A Pure Function  Can use the map method which returns an array The input value is not changed The process is repeatable: with same input array, will always generate the same output array  function doubleVals(arr){ return arr.map(d =\u0026gt; d * 2); }  Example B.1: Not a Pure Function  In the case below, we are modifying global state Will add a property called job to the person object  var person = {id: 53, name: \u0026quot;Iza\u0026quot;}; function addJob(job){ person.job = job; } addJob(\u0026quot;Data Scientist\u0026quot;);  Example B.2: Pure Function var person = {id: 88, name: \u0026quot;Iza\u0026quot;}; function addJob(personObj, job){ return Object.assign( {}, personObj, {job} ); } addJob(person, \u0026quot;Data Scientist\u0026quot;);  Example B.3: Use Object Spread operator for the Pure Function var person = {id: 88, name: \u0026quot;Iza\u0026quot;} function addJob(personObj, job){ return(...personObj, job); //Spread operator puts all the keys and values from personObj and put them into the new object we are creating } addJob(person, \u0026quot;Data Scientist\u0026quot;)  Pure function with React  All changes to this.state should be pure  "
+},
+{
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-forms/",
+	"title": "Forms",
+	"tags": [],
+	"description": "",
+	"content": " Objectives  Describe a controlled component vs. uncontrolled Handle submit onSubmit  Uncontrolled Component The component that react doesn\u0026rsquo;t have control over\n\u0026lt;input type=\u0026quot;text\u0026quot; /\u0026gt;  React is not aware of what the user is typing, the browser is in charge of the state\nControlled Component without Update \u0026lt;input type=\u0026quot;text\u0026quot; value={this.state.inputText}/\u0026gt;  React is now in control of the state via this.state.inputText, but the input can\u0026rsquo;t be updated\nControlled Component with Update \u0026lt;input type=\u0026quot;text\u0026quot; name=\u0026quot;inputText\u0026quot; value = {this.state.inputText} onChange{ (e) =\u0026gt; { this.setState({inputText: e.target.value}) } } /\u0026gt;  React is not in control of the state via this.state.inputText and the state can change via onChange\nonSubmit Lastly, let\u0026rsquo;s discuss how to submit a form\n\u0026lt;form onSubmit={(e) =\u0026gt; { e.preventDefault(); const data = [...this.state.data, this.state.inputText]; this.setState({data, inputText: ''}); }}\u0026gt; \u0026lt;input type=\u0026quot;text\u0026quot; name=\u0026quot;inputText\u0026quot; value={this.state.inputText} onChange={(e) =\u0026gt; { this.setState({[e.target.name]: e.target.value}) }} \u0026gt; \u0026lt;/form\u0026gt;  A button\u0026rsquo;s click is not the same as a submit, use onSubmit\n"
 },
 {
 	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/react-component-architecture/",
@@ -455,6 +525,13 @@
 	"content": "  Logistic Regression Theory  "
 },
 {
+	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/create-react-app-and-props/",
+	"title": "Create React App and Props",
+	"tags": [],
+	"description": "",
+	"content": "  Create React App  "
+},
+{
 	"uri": "https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/",
 	"title": "React State",
 	"tags": [],
@@ -466,7 +543,7 @@
 	"title": "Virtual DOM, Events and Forms",
 	"tags": [],
 	"description": "",
-	"content": "  Virtual DOM  "
+	"content": "  Virtual DOM Events Forms  "
 },
 {
 	"uri": "https://pomodorocoder.github.io/frontendmaster/d3/d3-visualization-embedded-in-jupyter-notebook/",
