@@ -78,6 +78,11 @@
   </url>
   
   <url>
+    <loc>https://pomodorocoder.github.io/dataquest/python-advanced/</loc>
+    <lastmod>2017-11-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pomodorocoder.github.io/datacamp/python-data-science-toolbox/</loc>
     <lastmod>2017-11-08T00:00:00+00:00</lastmod>
   </url>
@@ -158,6 +163,11 @@
   </url>
   
   <url>
+    <loc>https://pomodorocoder.github.io/dataquest/python-advanced/oop/</loc>
+    <lastmod>2017-11-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/</loc>
     <lastmod>2017-11-08T00:00:00+00:00</lastmod>
   </url>
@@ -188,6 +198,11 @@
   </url>
   
   <url>
+    <loc>https://pomodorocoder.github.io/dataquest/python-advanced/oop/defining-custom-classes/</loc>
+    <lastmod>2017-11-14T09:11:47-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pomodorocoder.github.io/frontendmaster/algorithms-js/object-oriented-js/define-class/</loc>
     <lastmod>2017-11-13T14:04:24-05:00</lastmod>
   </url>
@@ -213,6 +228,16 @@
   </url>
   
   <url>
+    <loc>https://pomodorocoder.github.io/dataquest/python-advanced/oop/adding-instance-properties/</loc>
+    <lastmod>2017-11-14T10:18:50-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pomodorocoder.github.io/dataquest/python-advanced/oop/instance-methods/</loc>
+    <lastmod>2017-11-14T10:53:30-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/linear-search-with-modular-code/</loc>
     <lastmod>2017-11-13T18:36:51-05:00</lastmod>
   </url>
@@ -229,7 +254,7 @@
   
   <url>
     <loc>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/constant-time-algorithms/</loc>
-    <lastmod>2017-11-13T18:42:45-05:00</lastmod>
+    <lastmod>2017-11-14T08:20:04-05:00</lastmod>
   </url>
   
   <url>
@@ -238,8 +263,18 @@
   </url>
   
   <url>
+    <loc>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/algorithms-linear-time/</loc>
+    <lastmod>2017-11-14T08:32:29-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/memory-and-unicode/strings-with-unicode/</loc>
     <lastmod>2017-11-13T15:11:13-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pomodorocoder.github.io/dataquest/data-structure-algorithms/algorithms/notation-for-time-complexity/</loc>
+    <lastmod>2017-11-14T08:37:05-05:00</lastmod>
   </url>
   
   <url>
@@ -298,6 +333,11 @@
   </url>
   
   <url>
+    <loc>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/create-react-app-and-props/create-react-app/</loc>
+    <lastmod>2017-11-14T12:18:40-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/state-intro/</loc>
     <lastmod>2017-11-13T09:17:12-05:00</lastmod>
   </url>
@@ -308,8 +348,18 @@
   </url>
   
   <url>
+    <loc>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-events/</loc>
+    <lastmod>2017-11-15T08:44:35-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/react-state/pure-functions/</loc>
     <lastmod>2017-11-13T09:17:21-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/virtual-dom-events-forms/react-forms/</loc>
+    <lastmod>2017-11-15T17:34:49-05:00</lastmod>
   </url>
   
   <url>
@@ -325,6 +375,11 @@
   <url>
     <loc>https://pomodorocoder.github.io/udemy/data-science-python/machine-learning/logistic-regression/</loc>
     <lastmod>2017-11-08T11:39:02-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pomodorocoder.github.io/udemy/advanced-web-developer-bootcamp/create-react-app-and-props/</loc>
+    <lastmod>2017-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -369,7 +424,7 @@
   
   <url>
     <loc>https://pomodorocoder.github.io/categories/udemy/</loc>
-    <lastmod>2017-11-13T09:17:12-05:00</lastmod>
+    <lastmod>2017-11-14T12:18:40-05:00</lastmod>
     <priority>0</priority>
   </url>
   
